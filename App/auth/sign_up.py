@@ -29,7 +29,7 @@ class reg_user:
                     break
                 else:
                     print("invalid name! only alphabet allow")
-                    return
+                    continue
             while True:    
                 email=input("enter your email:").lower()
 
