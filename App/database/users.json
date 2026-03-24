@@ -1,0 +1,92 @@
+[
+    {
+        "id": "f8fa5878-19a3-4b83-9382-2f320ec9364a",
+        "name": "urmila kumari",
+        "email": "urmila@gmail.com",
+        "password": "Urmila@1"
+    },
+    {
+        "id": "db8ea669-85f6-4a08-aa0b-e2870be2a63d",
+        "name": "nidhi kumari",
+        "email": "nhidh@gmail.com",
+        "password": "Nidhi@22",
+        "role": "admin"
+    },
+    {
+        "id": "be43ebb1-06b7-4bd6-9a3f-335c541f38ba",
+        "name": "amit kumar",
+        "email": "amit@gmail.com",
+        "password": "Amit@123",
+        "role": "admin"
+    },
+    {
+        "id": "724c3ac0-d00a-48cd-ab4e-4fe11004a75e",
+        "name": "goldi kumari",
+        "email": "goldi@gmail.com",
+        "password": "Goldi@22",
+        "role": "admin"
+    },
+    {
+        "id": "4cfa231f-5b27-4787-b4a6-19853c69c119",
+        "name": "nishu kumari",
+        "email": "nishu@gmail.com",
+        "password": "Nishu@22",
+        "role": "admin"
+    },
+    {
+        "id": "61a3c2a7-d6a4-4da2-88d7-d02f45995fc8",
+        "name": "kriti kumari",
+        "email": "alia@gmail.com",
+        "password": "Alia@1",
+        "role": "admin"
+    },
+    {
+        "id": "6976ce76-53af-4cfe-b1a5-29c75df0d967",
+        "name": "aniket goswami",
+        "email": "aniket@gmail.com",
+        "password": "Anik@1",
+        "role": "admin"
+    },
+    {
+        "id": "b2794fb3-c2e0-4aa1-bdad-ba90f5617334",
+        "name": "abu kumar",
+        "email": "abu@gmail.com",
+        "password": "Abu@22",
+        "role": "staff"
+    },
+    {
+        "id": "2d6d878c-7ef7-4e64-9aa5-ee51878a7771",
+        "name": "kaju kumar",
+        "email": "kaju@gmail.com",
+        "password": "Kaju@2",
+        "role": "staff"
+    },
+    {
+        "id": "b0e5bf40-3abe-4e9c-81ee-ac955cc182ff",
+        "name": "sonu kumar",
+        "email": "sonu@gmail.com",
+        "password": "Sonu@2",
+        "role": "staff"
+    },
+    {
+        "id": "53407bcd-9499-477a-87eb-4c4b47e0e97c",
+        "name": "bablu kumar",
+        "email": "bablu@gmail.com",
+        "password": "Balu@2",
+        "role": "staff"
+    },
+    {
+        "id": "67f318ee-2eb9-498f-a18f-e12857025f53",
+        "name": "lalu",
+        "email": "lalu@gmail.com",
+        "password": "Lalu@2",
+        "role": "admin"
+    },
+    {
+        "id": "1bc59c39-e5a3-417e-be52-ed29526db5ae",
+        "name": "neelam",
+        "email": "neelam@gmail.com",
+        "password": "Nela@2",
+        "role": "staff"
+    }
+]
