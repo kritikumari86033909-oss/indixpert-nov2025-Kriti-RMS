@@ -1,0 +1,96 @@
+[
+    {
+        "order_id": "77dd63da-e1ca-4c4a-b034-ef5f2fefaab8",
+        "customer_name": "kriti",
+        "phone": "9631690998",
+        "date": "25-03-2026",
+        "time": "13:22:24",
+        "items": [
+            {
+                "name": "Fish Biryani",
+                "size": "full",
+                "price": 420,
+                "qty": 1,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 420
+            }
+        ],
+        "subtotal": 420
+    },
+    {
+        "order_id": "6a552869-3b38-4d7d-8935-9b2aa0a3529b",
+        "customer_name": "nisha",
+        "phone": "7250244836",
+        "date": "26-03-2026",
+        "time": "12:30:16",
+        "items": [
+            {
+                "name": "Chicken Cutlet",
+                "size": "half",
+                "price": 150,
+                "qty": 2,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 300
+            },
+            {
+                "name": "Sweet Corn Soup",
+                "size": "full",
+                "price": 150,
+                "qty": 1,
+                "type": "takeaway",
+                "packing_charge": 10,
+                "total": 160
+            }
+        ],
+        "subtotal": 460
+    },
+    {
+        "order_id": "10e25d83-e984-43f4-ae51-59e73fd878d7",
+        "customer_name": "soni",
+        "phone": "8809492998",
+        "date": "26-03-2026",
+        "time": "13:41:04",
+        "items": [
+            {
+                "name": "palak paneer",
+                "size": "full",
+                "price": 180,
+                "qty": 2,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 360
+            },
+            {
+                "name": "Egg Fried Rice",
+                "size": "half",
+                "price": 150,
+                "qty": 3,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 450
+            }
+        ],
+        "subtotal": 810
+    },
+    {
+        "order_id": "72eae1cc-a43d-4edb-9a10-adc53b5bf015",
+        "customer_name": "surbhi",
+        "phone": "2345678987",
+        "date": "27-03-2026",
+        "time": "11:30:41",
+        "items": [
+            {
+                "name": "Sweet Corn Soup",
+                "size": "half",
+                "price": 90,
+                "qty": 2,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 180
+            }
+        ],
+        "subtotal": 180
+    }
+]

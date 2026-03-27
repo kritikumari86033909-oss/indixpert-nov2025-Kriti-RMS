@@ -88,5 +88,12 @@
         "email": "neelam@gmail.com",
         "password": "Nela@2",
         "role": "staff"
+    },
+    {
+        "id": "502160f6-a56b-4a1e-b427-0663ec55e560",
+        "name": "veer",
+        "email": "veer@gmail.com",
+        "password": "Veer@2",
+        "role": "admin"
     }
 ]

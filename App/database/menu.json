@@ -1,436 +1,702 @@
 [
     {
         "id": "1",
-        "name": "Paneer Tikka",
+        "name": "paneer chilla",
         "category": "veg",
-        "half_price": 200,
-        "full_price": 320
+        "half_price": 60,
+        "full_price": 180
     },
     {
         "id": "2",
-        "name": "Achari Paneer Tikka",
+        "name": "rajama chawal",
         "category": "veg",
-        "half_price": 200,
-        "full_price": 320
+        "half_price": 50,
+        "full_price": 100
     },
     {
         "id": "3",
-        "name": "Malai Paneer Tikka",
+        "name": "kadai paneer",
         "category": "veg",
-        "half_price": 220,
-        "full_price": 350
+        "half_price": 150,
+        "full_price": 300
     },
     {
         "id": "4",
-        "name": "Afghani Paneer Tikka",
+        "name": "shahi paneer",
         "category": "veg",
-        "half_price": 220,
-        "full_price": 320
-    },
-    {
-        "id": "5",
-        "name": "Tandoori Chaap",
-        "category": "veg",
-        "half_price": 130,
-        "full_price": 220
-    },
-    {
-        "id": "6",
-        "name": "Achari Chaap",
-        "category": "veg",
-        "half_price": 130,
-        "full_price": 220
-    },
-    {
-        "id": "7",
-        "name": "Lemon Chaap",
-        "category": "veg",
-        "half_price": 140,
-        "full_price": 240
-    },
-    {
-        "id": "8",
-        "name": "Malai Chaap",
-        "category": "veg",
-        "half_price": 150,
-        "full_price": 250
-    },
-    {
-        "id": "9",
-        "name": "Afghani Chaap",
-        "category": "veg",
-        "half_price": 150,
-        "full_price": 250
-    },
-    {
-        "id": "10",
-        "name": "Paneer Butter Masala",
-        "category": "veg",
-        "half_price": 180,
-        "full_price": 300
-    },
-    {
-        "id": "11",
-        "name": "Kadai Paneer",
-        "category": "veg",
-        "half_price": 170,
-        "full_price": 290
-    },
-    {
-        "id": "12",
-        "name": "Shahi Paneer",
-        "category": "veg",
-        "half_price": 180,
-        "full_price": 300
-    },
-    {
-        "id": "13",
-        "name": "Mix Veg",
-        "category": "veg",
-        "half_price": 150,
-        "full_price": 260
-    },
-    {
-        "id": "14",
-        "name": "Dal Makhani",
-        "category": "veg",
-        "half_price": 160,
-        "full_price": 280
-    },
-    {
-        "id": "15",
-        "name": "Jeera Rice",
-        "category": "veg",
-        "half_price": 90,
-        "full_price": 150
-    },
-    {
-        "id": "16",
-        "name": "Veg Biryani",
-        "category": "veg",
-        "half_price": 120,
+        "half_price": 100,
         "full_price": 200
     },
     {
-        "id": "17",
+        "id": "5",
+        "name": "palak paneer",
+        "category": "veg",
+        "half_price": 90,
+        "full_price": 180
+    },
+    {
+        "id": "6",
+        "name": "paneer butter masala",
+        "category": "veg",
+        "half_price": 60,
+        "full_price": 120
+    },
+    {
+        "id": "7",
+        "name": "Mix veg curry",
+        "category": "veg",
+        "half_price": 50,
+        "full_price": 100
+    },
+    {
+        "id": "8",
+        "name": "Aloo Gobi",
+        "category": "veg",
+        "half_price": 50,
+        "full_price": 100
+    },
+    {
+        "id": "9",
+        "name": "Dum Aloo",
+        "category": "veg",
+        "half_price": 60,
+        "full_price": 120
+    },
+    {
+        "id": "10",
+        "name": "veg Biryani",
+        "category": "veg",
+        "half_price": 60,
+        "full_price": 120
+    },
+    {
+        "id": "11",
+        "name": "Jeera rice",
+        "category": "veg",
+        "half_price": 70,
+        "full_price": 140
+    },
+    {
+        "id": "12",
         "name": "Veg Fried Rice",
         "category": "veg",
-        "half_price": 110,
-        "full_price": 190
+        "half_price": 80,
+        "full_price": 160
+    },
+    {
+        "id": "13",
+        "name": "Hakka Noodles",
+        "category": "veg",
+        "half_price": 30,
+        "full_price": 60
+    },
+    {
+        "id": "14",
+        "name": "Manchurian",
+        "category": "veg",
+        "half_price": 60,
+        "full_price": 120
+    },
+    {
+        "id": "15",
+        "name": "Spring Roll",
+        "category": "veg",
+        "half_price": 40,
+        "full_price": 80
+    },
+    {
+        "id": "16",
+        "name": "Veg Kofta",
+        "category": "veg",
+        "half_price": 50,
+        "full_price": 100
+    },
+    {
+        "id": "17",
+        "name": "Dal Tadka",
+        "category": "veg",
+        "half_price": 70,
+        "full_price": 140
     },
     {
         "id": "18",
-        "name": "Hakka Noodles",
+        "name": "Dal Makhani",
+        "category": "veg",
+        "half_price": 80,
+        "full_price": 160
+    },
+    {
+        "id": "19",
+        "name": "Rama Masala",
+        "category": "veg",
+        "half_price": 90,
+        "full_price": 180
+    },
+    {
+        "id": "20",
+        "name": "Idli Sambar",
+        "category": "veg",
+        "half_price": 80,
+        "full_price": 160
+    },
+    {
+        "id": "21",
+        "name": "Uttapam",
+        "category": "veg",
+        "half_price": 50,
+        "full_price": 100
+    },
+    {
+        "id": "22",
+        "name": "Pav Bhaji",
+        "category": "veg",
+        "half_price": 40,
+        "full_price": 80
+    },
+    {
+        "id": "23",
+        "name": "Veg Barger",
+        "category": "veg",
+        "half_price": 30,
+        "full_price": 60
+    },
+    {
+        "id": "24",
+        "name": "Veg Sendwich",
+        "category": "veg",
+        "half_price": 40,
+        "full_price": 80
+    },
+    {
+        "id": "25",
+        "name": "cheese pizza",
+        "category": "veg",
+        "half_price": 120,
+        "full_price": 240
+    },
+    {
+        "id": "26",
+        "name": "Butter Naan",
+        "category": "veg",
+        "half_price": 60,
+        "full_price": 120
+    },
+    {
+        "id": "27",
+        "name": "Garlic naan",
+        "category": "veg",
+        "half_price": 70,
+        "full_price": 140
+    },
+    {
+        "id": "28",
+        "name": "Margherita Pizza",
+        "category": "veg",
+        "half_price": 180,
+        "full_price": 320
+    },
+    {
+        "id": "29",
+        "name": "Butter Naan",
+        "category": "veg",
+        "half_price": 40,
+        "full_price": 60
+    },
+    {
+        "id": "30",
+        "name": "Garlic Naan",
+        "category": "veg",
+        "half_price": 50,
+        "full_price": 80
+    },
+    {
+        "id": "31",
+        "name": "Tandoori Roti",
+        "category": "veg",
+        "half_price": 20,
+        "full_price": 40
+    },
+    {
+        "id": "32",
+        "name": "Plain Rice",
+        "category": "veg",
+        "half_price": 80,
+        "full_price": 140
+    },
+    {
+        "id": "33",
+        "name": "Lemon Rice",
         "category": "veg",
         "half_price": 100,
         "full_price": 180
     },
     {
-        "id": "19",
-        "name": "Spring Roll",
-        "category": "veg",
-        "half_price": 120,
-        "full_price": 200
-    },
-    {
-        "id": "20",
-        "name": "Manchurian",
-        "category": "veg",
-        "half_price": 130,
-        "full_price": 220
-    },
-    {
-        "id": "21",
-        "name": "Chicken Tikka",
-        "category": "non-veg",
-        "half_price": 250,
-        "full_price": 400
-    },
-    {
-        "id": "22",
-        "name": "Malai Chicken Tikka",
-        "category": "non-veg",
-        "half_price": 260,
-        "full_price": 420
-    },
-    {
-        "id": "23",
-        "name": "Afghani Chicken Tikka",
-        "category": "non-veg",
-        "half_price": 260,
-        "full_price": 420
-    },
-    {
-        "id": "24",
-        "name": "Chicken Kali Mirch",
-        "category": "non-veg",
-        "half_price": 260,
-        "full_price": 420
-    },
-    {
-        "id": "25",
-        "name": "Tandoori Chicken",
-        "category": "non-veg",
-        "half_price": 350,
-        "full_price": 600
-    },
-    {
-        "id": "26",
-        "name": "Afghani Chicken",
-        "category": "non-veg",
-        "half_price": 350,
-        "full_price": 600
-    },
-    {
-        "id": "27",
-        "name": "Roasted Tangri",
-        "category": "non-veg",
-        "half_price": 120,
-        "full_price": 200
-    },
-    {
-        "id": "28",
-        "name": "Diet Chicken",
-        "category": "non-veg",
-        "half_price": 150,
-        "full_price": 260
-    },
-    {
-        "id": "29",
-        "name": "Chicken Seekh Kebab",
-        "category": "non-veg",
-        "half_price": 100,
-        "full_price": 160
-    },
-    {
-        "id": "30",
-        "name": "Butter Chicken",
-        "category": "non-veg",
-        "half_price": 250,
-        "full_price": 400
-    },
-    {
-        "id": "31",
-        "name": "Chicken Curry",
-        "category": "non-veg",
-        "half_price": 220,
-        "full_price": 360
-    },
-    {
-        "id": "32",
-        "name": "Kadai Chicken",
-        "category": "non-veg",
-        "half_price": 230,
-        "full_price": 380
-    },
-    {
-        "id": "33",
-        "name": "Chicken Biryani",
-        "category": "non-veg",
-        "half_price": 180,
-        "full_price": 300
-    },
-    {
         "id": "34",
-        "name": "Egg Curry",
-        "category": "non-veg",
+        "name": "Veg Pulao",
+        "category": "veg",
         "half_price": 140,
         "full_price": 240
     },
     {
         "id": "35",
-        "name": "Egg Fried Rice",
-        "category": "non-veg",
+        "name": "Corn Masala",
+        "category": "veg",
+        "half_price": 150,
+        "full_price": 250
+    },
+    {
+        "id": "36",
+        "name": "Mushroom Curry",
+        "category": "veg",
+        "half_price": 160,
+        "full_price": 270
+    },
+    {
+        "id": "37",
+        "name": "Mushroom Masala",
+        "category": "veg",
+        "half_price": 170,
+        "full_price": 280
+    },
+    {
+        "id": "38",
+        "name": "Paneer Bhurji",
+        "category": "veg",
+        "half_price": 160,
+        "full_price": 270
+    },
+    {
+        "id": "39",
+        "name": "Veg Cutlet",
+        "category": "veg",
+        "half_price": 90,
+        "full_price": 150
+    },
+    {
+        "id": "40",
+        "name": "French Fries",
+        "category": "veg",
+        "half_price": 80,
+        "full_price": 140
+    },
+    {
+        "id": "41",
+        "name": "Cheese Balls",
+        "category": "veg",
         "half_price": 120,
         "full_price": 200
     },
     {
-        "id": "36",
-        "name": "Chicken Fried Rice",
-        "category": "non-veg",
-        "half_price": 150,
-        "full_price": 260
-    },
-    {
-        "id": "37",
-        "name": "Chicken Noodles",
-        "category": "non-veg",
-        "half_price": 140,
-        "full_price": 240
-    },
-    {
-        "id": "38",
-        "name": "Chicken Manchurian",
-        "category": "non-veg",
-        "half_price": 160,
-        "full_price": 280
-    },
-    {
-        "id": "39",
-        "name": "Fish Fry",
-        "category": "non-veg",
-        "half_price": 200,
-        "full_price": 320
-    },
-    {
-        "id": "40",
-        "name": "Fish Curry",
-        "category": "non-veg",
-        "half_price": 220,
-        "full_price": 350
-    },
-    {
-        "id": "41",
-        "name": "Rumali Roti",
-        "category": "veg",
-        "half_price": 20,
-        "full_price": 40
-    },
-    {
         "id": "42",
-        "name": "Butter Naan",
+        "name": "Veg Soup",
         "category": "veg",
-        "half_price": 30,
-        "full_price": 50
+        "half_price": 90,
+        "full_price": 150
     },
     {
         "id": "43",
-        "name": "Garlic Naan",
+        "name": "Tomato Soup",
         "category": "veg",
-        "half_price": 40,
-        "full_price": 60
+        "half_price": 80,
+        "full_price": 140
     },
     {
         "id": "44",
-        "name": "Tandoori Roti",
+        "name": "Sweet Corn Soup",
         "category": "veg",
-        "half_price": 15,
-        "full_price": 25
+        "half_price": 90,
+        "full_price": 150
     },
     {
         "id": "45",
-        "name": "Lachha Paratha",
-        "category": "veg",
-        "half_price": 35,
-        "full_price": 60
-    },
-    {
-        "id": "46",
-        "name": "Stuffed Kulcha",
-        "category": "veg",
-        "half_price": 50,
-        "full_price": 80
-    },
-    {
-        "id": "47",
-        "name": "Cold Drink",
-        "category": "veg",
-        "half_price": 40,
-        "full_price": 80
-    },
-    {
-        "id": "48",
-        "name": "Mineral Water",
-        "category": "veg",
-        "half_price": 20,
-        "full_price": 40
-    },
-    {
-        "id": "49",
-        "name": "Lassi",
-        "category": "veg",
-        "half_price": 50,
-        "full_price": 90
-    },
-    {
-        "id": "50",
-        "name": "Sweet Lassi",
-        "category": "veg",
-        "half_price": 60,
-        "full_price": 100
-    },
-    {
-        "id": "51",
         "name": "Ice Cream",
         "category": "veg",
         "half_price": 60,
         "full_price": 100
     },
     {
-        "id": "52",
+        "id": "46",
         "name": "Gulab Jamun",
         "category": "veg",
-        "half_price": 50,
-        "full_price": 90
+        "half_price": 70,
+        "full_price": 120
+    },
+    {
+        "id": "47",
+        "name": "Rasgulla",
+        "category": "veg",
+        "half_price": 60,
+        "full_price": 110
+    },
+    {
+        "id": "48",
+        "name": "Brownie",
+        "category": "veg",
+        "half_price": 120,
+        "full_price": 200
+    },
+    {
+        "id": "49",
+        "name": "Falooda",
+        "category": "veg",
+        "half_price": 130,
+        "full_price": 220
+    },
+    {
+        "id": "50",
+        "name": "Fruit Salad",
+        "category": "veg",
+        "half_price": 100,
+        "full_price": 180
+    },
+    {
+        "id": "51",
+        "name": "Chicken Tikka",
+        "category": "non-veg",
+        "half_price": 220,
+        "full_price": 360
+    },
+    {
+        "id": "52",
+        "name": "Butter Chicken",
+        "category": "non-veg",
+        "half_price": 240,
+        "full_price": 400
     },
     {
         "id": "53",
-        "name": "Rasmalai",
-        "category": "veg",
-        "half_price": 70,
-        "full_price": 120
+        "name": "Chicken Curry",
+        "category": "non-veg",
+        "half_price": 200,
+        "full_price": 340
     },
     {
         "id": "54",
-        "name": "Chocolate Cake",
-        "category": "veg",
-        "half_price": 80,
-        "full_price": 140
+        "name": "Chicken Korma",
+        "category": "non-veg",
+        "half_price": 230,
+        "full_price": 380
     },
     {
         "id": "55",
-        "name": "Masala Papad",
-        "category": "veg",
-        "half_price": 40,
-        "full_price": 70
+        "name": "Chicken Biryani",
+        "category": "non-veg",
+        "half_price": 220,
+        "full_price": 360
     },
     {
         "id": "56",
-        "name": "Green Salad",
-        "category": "veg",
-        "half_price": 60,
-        "full_price": 100
+        "name": "Chicken Fried Rice",
+        "category": "non-veg",
+        "half_price": 180,
+        "full_price": 300
     },
     {
         "id": "57",
-        "name": "Russian Salad",
-        "category": "veg",
-        "half_price": 80,
-        "full_price": 140
+        "name": "Chicken Noodles",
+        "category": "non-veg",
+        "half_price": 170,
+        "full_price": 290
     },
     {
         "id": "58",
-        "name": "Tomato Soup",
-        "category": "veg",
-        "half_price": 70,
-        "full_price": 120
+        "name": "Chicken Lollipop",
+        "category": "non-veg",
+        "half_price": 200,
+        "full_price": 320
     },
     {
         "id": "59",
-        "name": "Sweet Corn Soup",
-        "category": "veg",
-        "half_price": 80,
-        "full_price": 130
+        "name": "Chicken 65",
+        "category": "non-veg",
+        "half_price": 190,
+        "full_price": 310
     },
     {
         "id": "60",
-        "name": "Hot & Sour Soup",
-        "category": "veg",
-        "half_price": 80,
-        "full_price": 130
-    },
-    {
-        "id": "89103e2e-9239-4e26-9bb1-9ca63d22c470",
-        "name": "palak paneer",
-        "category": "veg",
-        "half_price": 50,
-        "full_price": 100
-    },
-    {
-        "id": "49b22aac-458f-4241-871c-b969b25ad2e0",
-        "name": "egg roll",
+        "name": "Tandoori Chicken",
         "category": "non-veg",
-        "half_price": 30,
-        "full_price": 60
+        "half_price": 250,
+        "full_price": 420
+    },
+    {
+        "id": "61",
+        "name": "Chicken Seekh Kebab",
+        "category": "non-veg",
+        "half_price": 230,
+        "full_price": 380
+    },
+    {
+        "id": "62",
+        "name": "Chicken Shawarma",
+        "category": "non-veg",
+        "half_price": 180,
+        "full_price": 300
+    },
+    {
+        "id": "63",
+        "name": "Chicken Roll",
+        "category": "non-veg",
+        "half_price": 150,
+        "full_price": 250
+    },
+    {
+        "id": "64",
+        "name": "Egg Curry",
+        "category": "non-veg",
+        "half_price": 140,
+        "full_price": 240
+    },
+    {
+        "id": "65",
+        "name": "Egg Bhurji",
+        "category": "non-veg",
+        "half_price": 130,
+        "full_price": 220
+    },
+    {
+        "id": "66",
+        "name": "Egg Fried Rice",
+        "category": "non-veg",
+        "half_price": 150,
+        "full_price": 260
+    },
+    {
+        "id": "67",
+        "name": "Fish Fry",
+        "category": "non-veg",
+        "half_price": 220,
+        "full_price": 360
+    },
+    {
+        "id": "68",
+        "name": "Fish Curry",
+        "category": "non-veg",
+        "half_price": 240,
+        "full_price": 380
+    },
+    {
+        "id": "69",
+        "name": "Fish Tikka",
+        "category": "non-veg",
+        "half_price": 230,
+        "full_price": 370
+    },
+    {
+        "id": "70",
+        "name": "Prawn Curry",
+        "category": "non-veg",
+        "half_price": 260,
+        "full_price": 420
+    },
+    {
+        "id": "71",
+        "name": "Prawn Fry",
+        "category": "non-veg",
+        "half_price": 250,
+        "full_price": 400
+    },
+    {
+        "id": "72",
+        "name": "Mutton Curry",
+        "category": "non-veg",
+        "half_price": 280,
+        "full_price": 450
+    },
+    {
+        "id": "73",
+        "name": "Mutton Biryani",
+        "category": "non-veg",
+        "half_price": 270,
+        "full_price": 440
+    },
+    {
+        "id": "74",
+        "name": "Mutton Rogan Josh",
+        "category": "non-veg",
+        "half_price": 300,
+        "full_price": 480
+    },
+    {
+        "id": "75",
+        "name": "Keema Curry",
+        "category": "non-veg",
+        "half_price": 260,
+        "full_price": 420
+    },
+    {
+        "id": "76",
+        "name": "Mutton Seekh Kebab",
+        "category": "non-veg",
+        "half_price": 290,
+        "full_price": 460
+    },
+    {
+        "id": "77",
+        "name": "Chicken Soup",
+        "category": "non-veg",
+        "half_price": 120,
+        "full_price": 200
+    },
+    {
+        "id": "78",
+        "name": "Hot & Sour Chicken Soup",
+        "category": "non-veg",
+        "half_price": 130,
+        "full_price": 220
+    },
+    {
+        "id": "79",
+        "name": "Egg Roll",
+        "category": "non-veg",
+        "half_price": 100,
+        "full_price": 180
+    },
+    {
+        "id": "80",
+        "name": "Chicken Burger",
+        "category": "non-veg",
+        "half_price": 120,
+        "full_price": 200
+    },
+    {
+        "id": "81",
+        "name": "Chicken Pizza",
+        "category": "non-veg",
+        "half_price": 220,
+        "full_price": 360
+    },
+    {
+        "id": "82",
+        "name": "Chicken Pasta",
+        "category": "non-veg",
+        "half_price": 200,
+        "full_price": 340
+    },
+    {
+        "id": "83",
+        "name": "Grilled Chicken",
+        "category": "non-veg",
+        "half_price": 240,
+        "full_price": 400
+    },
+    {
+        "id": "84",
+        "name": "Chicken Wings",
+        "category": "non-veg",
+        "half_price": 210,
+        "full_price": 350
+    },
+    {
+        "id": "85",
+        "name": "Chicken Popcorn",
+        "category": "non-veg",
+        "half_price": 180,
+        "full_price": 300
+    },
+    {
+        "id": "86",
+        "name": "Fish Fingers",
+        "category": "non-veg",
+        "half_price": 200,
+        "full_price": 320
+    },
+    {
+        "id": "87",
+        "name": "Chicken Sandwich",
+        "category": "non-veg",
+        "half_price": 140,
+        "full_price": 240
+    },
+    {
+        "id": "88",
+        "name": "Chicken Cutlet",
+        "category": "non-veg",
+        "half_price": 150,
+        "full_price": 250
+    },
+    {
+        "id": "89",
+        "name": "Omelette",
+        "category": "non-veg",
+        "half_price": 90,
+        "full_price": 150
+    },
+    {
+        "id": "90",
+        "name": "Double Omelette",
+        "category": "non-veg",
+        "half_price": 120,
+        "full_price": 200
+    },
+    {
+        "id": "91",
+        "name": "Chicken Keema",
+        "category": "non-veg",
+        "half_price": 240,
+        "full_price": 400
+    },
+    {
+        "id": "92",
+        "name": "Egg Curry Masala",
+        "category": "non-veg",
+        "half_price": 150,
+        "full_price": 260
+    },
+    {
+        "id": "93",
+        "name": "Fish Biryani",
+        "category": "non-veg",
+        "half_price": 260,
+        "full_price": 420
+    },
+    {
+        "id": "94",
+        "name": "Prawn Biryani",
+        "category": "non-veg",
+        "half_price": 280,
+        "full_price": 450
+    },
+    {
+        "id": "95",
+        "name": "Chicken Manchurian",
+        "category": "non-veg",
+        "half_price": 200,
+        "full_price": 340
+    },
+    {
+        "id": "96",
+        "name": "Chicken Chilli",
+        "category": "non-veg",
+        "half_price": 210,
+        "full_price": 350
+    },
+    {
+        "id": "97",
+        "name": "Chicken Tandoori Half",
+        "category": "non-veg",
+        "half_price": 240,
+        "full_price": 380
+    },
+    {
+        "id": "98",
+        "name": "Chicken Tandoori Full",
+        "category": "non-veg",
+        "half_price": 300,
+        "full_price": 480
+    },
+    {
+        "id": "100",
+        "name": "Chicken Clear Soup",
+        "category": "non-veg",
+        "half_price": 130,
+        "full_price": 220
+    },
+    {
+        "id": "101",
+        "name": "paneer pizza",
+        "category": "veg",
+        "half_price": 60,
+        "full_price": 120
     }
 ]

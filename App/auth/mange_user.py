@@ -1,7 +1,8 @@
 from App.auth.sign_up import reg_user
 from App.auth.sign_in import Login
 from App.dashboard.user_manage_dashboard import UserDashboard
-
+from App.dashboard.admin import AdminDashboard
+from App.dashboard.staff import StaffDashboard
 
 class UserManag:
     def menu(self):
@@ -40,12 +41,12 @@ class UserManag:
 
                  
                 if role == "admin":
-                    from App.dashboard.admin import AdminDashboard
+                    
                     obj = AdminDashboard()
                     obj.admin_menu()
 
                 elif role == "staff":
-                    from App.dashboard.staff import StaffDashboard
+                    
                     obj = StaffDashboard()
                     obj.staff_menu()
 
@@ -62,13 +63,4 @@ class UserManag:
 
             else:
                 print(" Invalid choice (1-3 only)")
-            #     if role:
-            #         dash = UserDashboard()
-            #         dash.dashboard(role)   # dashboard open
-
-            # elif choice == 3:
-            #     print("Thank You! Exiting...")
-            #     break
-
-            # else:
-            #     print("invalid choice please try again!")
+            

@@ -20,6 +20,7 @@ class reg_user:
     def register(self):
         try:
             user_id=str(uuid.uuid4())
+            # -------NAME-------
             while True:
                 name=input("enter your name:").strip()
                 check_name=name.replace(" ","")
@@ -29,7 +30,8 @@ class reg_user:
                     break
                 else:
                     print("invalid name! only alphabet allow")
-                    continue
+                    
+
             while True:    
                 email=input("enter your email:").lower()
 

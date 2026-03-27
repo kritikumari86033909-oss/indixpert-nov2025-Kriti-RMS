@@ -9,15 +9,11 @@ class Login:
 
     def sign_in(self):
 
-        attempts = 3   #  max 3 tries
+        attempts = 3   
 
         while attempts > 0:
             try:
 
-                #  PATH check (important debug)
-                # print("PATH:", self.file_path)
-
-                # File check
                 if not os.path.exists(self.file_path):
                     print("No users found, please signup first")
                     return None
@@ -44,7 +40,7 @@ class Login:
                         return role
 
                 #  Wrong credentials
-                attempts -= 1
+                attempts = attempts - 1
                 print(f" Invalid email or password. Attempts left: {attempts}")
 
             except FileNotFoundError:
