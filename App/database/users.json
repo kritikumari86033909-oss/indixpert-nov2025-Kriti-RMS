@@ -95,5 +95,12 @@
         "email": "veer@gmail.com",
         "password": "Veer@2",
         "role": "admin"
+    },
+    {
+        "id": "3afdbdbf-1982-445e-848a-a6ef0976a84e",
+        "name": "mukul",
+        "email": "mukul@gmal.com",
+        "password": "Muku@2",
+        "role": "staff"
     }
 ]

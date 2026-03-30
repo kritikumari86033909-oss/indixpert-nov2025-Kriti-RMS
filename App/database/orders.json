@@ -92,5 +92,51 @@
             }
         ],
         "subtotal": 180
+    },
+    {
+        "order_id": "91c34648-f1d2-428e-b046-05a6cca7f47b",
+        "customer_name": "urmila",
+        "phone": "8809493998",
+        "date": "27-03-2026",
+        "time": "12:46:32",
+        "items": [
+            {
+                "name": "Chicken Soup",
+                "size": "full",
+                "price": 200,
+                "qty": 3,
+                "type": "takeaway",
+                "packing_charge": 10,
+                "total": 610
+            }
+        ],
+        "subtotal": 610
+    },
+    {
+        "order_id": "aafb5d8b-173e-4c87-a255-7af09bf56060",
+        "customer_name": "mayank",
+        "phone": "8414380998",
+        "date": "30-03-2026",
+        "time": "00:12:30",
+        "items": [
+            {
+                "name": "Chicken Biryani",
+                "size": "full",
+                "price": 360,
+                "qty": 1,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 360
+            }
+        ],
+        "subtotal": 360,
+        "bill": {
+            "discount": 0,
+            "gst": 18.0,
+            "packing": 0,
+            "final_total": 378.0,
+            "payment_methode": "UPI"
+        }
     }
 ]
+

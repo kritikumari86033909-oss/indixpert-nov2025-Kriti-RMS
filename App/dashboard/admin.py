@@ -78,12 +78,12 @@ class AdminDashboard:
 
                     else:
                         print("invailed choice")
-                    input("\npress enter to coninue ...")
+                    
 
 
             elif choice == "2":
                 self.view_orders()
-                input("\npress enter to continue...")
+                
     
 
             elif choice == "3":
@@ -124,19 +124,21 @@ class AdminDashboard:
 
                     else:
                         print("Invalid choice")
-                    input("\npress enter to continue...")    
+                   
 
             elif choice == "4":
-                self.sales_report()
-                input("\npress enter to continue...")
+                from App.report.project_info import Report
+                report = Report()
+                report.generate_report()
+                
 
             elif choice == "5":
                 self.delete_order()
-                input("\npress enter to continue...")
+            
 
             elif choice == "6":
                 self.today_sales()
-                input("\npress enter to continue...")    
+        
                 
             elif choice == "7":
                 print("Logout Successfuly")
