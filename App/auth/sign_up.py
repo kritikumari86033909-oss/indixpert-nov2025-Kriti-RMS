@@ -33,14 +33,11 @@ class reg_user:
                     
 
             while True:    
-                email=input("enter your email:").lower()
+                email=input("enter your email:").strip().lower()
 
-                if "@" in email and "." in email:
-                    print("valid email")
-                else:
-                    print("invalid email:")
-                    return
-
+                if not (email.count("@") == 1 and "." in email and email.index("@") < email.rindex(".")):
+                    print("invalid email: try again")
+                    continue
 
                 # duplicate email check
                 duplicate=False
@@ -50,6 +47,7 @@ class reg_user:
                         break
                 if duplicate:
                     print("email already exists")
+                    continue
                 else:
                     print("valide email")
                     break            

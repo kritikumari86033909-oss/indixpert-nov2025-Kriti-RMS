@@ -10,6 +10,17 @@ class Order:
         self.menu_path = os.path.join("App", "database", "menu.json")
         self.order_path = os.path.join("App", "database", "orders.json")
 
+    def search_menu(self, menu, keyword):
+        keyword = keyword.lower()
+        results = []
+
+        for item in menu:
+            item_name = item["name"].lower()
+            if keyword in item_name:
+                results.append(item)    
+
+        return results
+    
     def place_order(self):
 
         name = input("Enter customer name: ").strip()
@@ -35,6 +46,7 @@ class Order:
             return    
         
         
+        # -------- DISPLAY MENU --------
         print("\n" + "="*60)
         print("      5 STAR RESTAURENT MENU ")
         print("="*60)
@@ -69,13 +81,24 @@ class Order:
         cart=[]
         total = 0
 
-        
         # -------- ORDER LOOP --------
         while True:
-            food_id = input("Enter Food ID : ").strip()
-
-            if food_id in ["0", "done", "q"]:
+            keyword = input("\n Enter food name to search (or 'done' to finish): ").strip()
+            if keyword.lower() in ["done", "0", "quick"]:
                 break
+
+            results = self.search_menu(menu, keyword)
+            if not results:
+                print("no item found try again")
+                continue
+
+            # Show search results
+            print("\nSearch Results:")
+            print(f"{'ID':<5}{'NAME':<30}{'HALF(₹)':<10}{'FULL(₹)':<10}")
+            for item in results:
+                print(f"{item['id']:<5}{item['name']:<30}{item['half_price']:<10}{item['full_price']:<10}")
+
+            food_id = input("Enter Food ID : ").strip()
 
             found = None
             for item in menu:
@@ -104,7 +127,15 @@ class Order:
                 continue
 
             qty = int(qty)
-              # TAKEAWAY / DINE-IN
+            if qty < 1:
+                print("Minimum quantity is 1")
+                continue
+            elif qty > 15:
+                print("Maximum quantity is 10")
+                continue
+
+             
+            # -------- PACKING -------- 
             pack=input("pack this item? (yes/no): ").strip().lower()
             if pack == "yes":
                 order_type= "takeaway"
@@ -113,8 +144,9 @@ class Order:
                 order_type="dine in"
                 packing_charge=0
 
+            # -------- ITEM TOTAL --------
             item_total = (price * qty) + packing_charge
-            total += item_total
+            total = total + item_total
 
             cart.append({
                 "name" : found.get("name"),
@@ -126,9 +158,8 @@ class Order:
                 "total" :item_total
         
             })
+            print(f"{found.get('name')} added to cart. Item total: ₹{item_total}")
 
-        
-            print(" Item added to cart")
 
         if not cart:
             print(" No items selected")
@@ -168,6 +199,8 @@ class Order:
         
         bill=Billing()
         bill.generate_bill(name, phone, address, cart, total)
+
+        print("\nOrder placed successfully!")
          
 
         

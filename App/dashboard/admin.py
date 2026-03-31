@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 from App.menu.manage_menu import ManageMenu
 from App.booking.table_booking import Booking
+from App.report.project_info import Report
 
 # -------- COMMON UI FUNCTION --------
 def print_box(title, options):
@@ -23,7 +24,6 @@ class AdminDashboard:
 
         menu=ManageMenu()
 
-        
         while True:
 
             print_box("ADMIN DASHBOARD ",[ 
@@ -48,7 +48,7 @@ class AdminDashboard:
 
                     print_box("MENU MANAGEMENT", [
                         "1 Add Food",
-                        "2 View Food",
+                        "2 View menu",
                         "3 Update Food",
                         "4 Delete Food",
                         "5 Back"
@@ -64,7 +64,7 @@ class AdminDashboard:
                         menu.add_food()
 
                     elif option == "2":
-                        menu.view_food()
+                        menu.view_menu()
 
                     elif option == "3":
                         menu.update_food()
@@ -79,13 +79,9 @@ class AdminDashboard:
                     else:
                         print("invailed choice")
                     
-
-
             elif choice == "2":
                 self.view_orders()
                 
-    
-
             elif choice == "3":
                 booking=Booking()
 
@@ -125,9 +121,7 @@ class AdminDashboard:
                     else:
                         print("Invalid choice")
                    
-
             elif choice == "4":
-                from App.report.project_info import Report
                 report = Report()
                 report.generate_report()
                 
@@ -146,7 +140,6 @@ class AdminDashboard:
 
             else:
                 print("Invalid Choice")
-
 
     def view_orders(self):
 
@@ -192,7 +185,10 @@ class AdminDashboard:
 
         order_id = input("Enter Order ID to delete: ").strip()
 
-        new_orders = [o for o in orders if o.get("order_id") != order_id]
+        new_orders = []
+        for i in orders:
+            if i["order_id"]!=order_id:
+                new_orders.append(i)
 
 
         if len(orders) == len(new_orders):
@@ -204,7 +200,6 @@ class AdminDashboard:
             json.dump(new_orders, file, indent=4)
 
         print("Order deleted successfully") 
-
 
 
     def sales_report(self):
@@ -221,7 +216,9 @@ class AdminDashboard:
                 return
 
         total_orders= len(orders)
-        total_sales=sum(order.get("subtotal", 0) for order in orders)
+        total_sales=0
+        for order in orders:
+            total_sales = total_sales+order.get("subtotal", 0)
 
     
         print("\n===== SALES REPORT =====")
@@ -244,10 +241,16 @@ class AdminDashboard:
             print("no data found")   
             return     
 
-        today_orders = [o for o in orders if o.get("date") == today]
-        total = sum(o.get("subtotal", 0) for o in today_orders) 
+        today_orders = []
 
-        
+        for o in orders:
+            if o.get("date") == today:
+                today_orders.append(o)
+
+        total = 0
+        for o in today_orders:
+            total = total+o.get("subtotal", 0)        
+
         print("\n===== TODAY SALES =====")
         print("Orders Today:", len(today_orders))
         print("Today's Revenue: ₹", total)

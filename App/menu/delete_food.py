@@ -24,11 +24,13 @@ class DeleteMenu:
             return
         
         food_id=input("Enter food IDto delete: ").strip()
+        new_data = []
         found=False
         for food in data:
             if food.get("id") == food_id:
                 found=True
-                break
+            else:
+                new_data.append(food)
 
         if not found:
             print("Food not found")
@@ -39,13 +41,6 @@ class DeleteMenu:
             print("Delete cancelled")
             return
         
-
-        # -------- DELETE --------
-        new_data=[]
-
-        for food in data:
-            if food.get("id") != food_id:
-                new_data.append(food)
 
         with open(file_path,"w") as file:
             json.dump(new_data,file,indent=4)

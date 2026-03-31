@@ -3,7 +3,7 @@ import os
 
 class ViewMenu:
 
-    def view_food(self):
+    def view_menu(self):
 
         file_path = os.path.join("App","database","menu.json")
 

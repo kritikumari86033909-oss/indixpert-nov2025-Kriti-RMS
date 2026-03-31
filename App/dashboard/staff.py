@@ -1,6 +1,5 @@
-from App.menu.view_food import ViewMenu
+from App.menu.view_menu import ViewMenu
 from App.order.order import Order
-from App.dashboard.admin import AdminDashboard
 from App.booking.table_booking import Booking
 
 class StaffDashboard:
@@ -9,7 +8,7 @@ class StaffDashboard:
 
         view = ViewMenu()
         order = Order()
-        admin = AdminDashboard()   # booking reuse
+        booking = Booking()
 
         while True:
 
@@ -28,8 +27,7 @@ class StaffDashboard:
                 order.place_order()
 
             elif choice == "3":
-                booking = Booking()
-
+                
                 while True:
                     print("\n===== BOOKING MENU =====")
                     print("1 Add Booking")

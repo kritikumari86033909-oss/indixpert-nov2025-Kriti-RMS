@@ -137,6 +137,66 @@
             "final_total": 378.0,
             "payment_methode": "UPI"
         }
+    },
+    {
+        "order_id": "b4378185-2077-4eb5-9eef-4719ba183e9b",
+        "customer_name": "renu kumari",
+        "phone": "1234567898",
+        "date": "31-03-2026",
+        "time": "23:29:06",
+        "items": [
+            {
+                "name": "Lemon Rice",
+                "size": "half",
+                "price": 100,
+                "qty": 2,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 200
+            }
+        ],
+        "subtotal": 200,
+        "bill": {
+            "discount": 0,
+            "gst": 10.0,
+            "packing": 0,
+            "final_total": 210.0,
+            "payment_methode": "cash"
+        }
+    },
+    {
+        "order_id": "44721802-acd1-4a01-bacd-ed9ba073898d",
+        "customer_name": "rekha",
+        "phone": "1234567898",
+        "date": "01-04-2026",
+        "time": "00:29:22",
+        "items": [
+            {
+                "name": "Chicken Pizza",
+                "size": "full",
+                "price": 360,
+                "qty": 2,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 720
+            },
+            {
+                "name": "Tandoori Roti",
+                "size": "half",
+                "price": 20,
+                "qty": 1,
+                "type": "takeaway",
+                "packing_charge": 10,
+                "total": 30
+            }
+        ],
+        "subtotal": 750,
+        "bill": {
+            "discount": 37.5,
+            "gst": 35.625,
+            "packing": 10,
+            "final_total": 758.125,
+            "payment_methode": "Card"
+        }
     }
 ]
-

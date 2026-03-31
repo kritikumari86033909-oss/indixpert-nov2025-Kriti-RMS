@@ -12,7 +12,9 @@ class Billing:
 
         # packing system
 
-        total_packing = sum(item["packing_charge"] * item["qty"] for item in cart)
+        total_packing = 0 
+        for item in cart:
+            total_packing=total_packing+item["packing_charge"] * item["qty"]
 
         # -------- DISCOUNT --------
         discount = 0

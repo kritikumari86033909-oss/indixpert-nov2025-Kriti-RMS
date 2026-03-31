@@ -80,7 +80,7 @@
         "name": "lalu",
         "email": "lalu@gmail.com",
         "password": "Lalu@2",
-        "role": "admin"
+        "role": "staff"
     },
     {
         "id": "1bc59c39-e5a3-417e-be52-ed29526db5ae",
@@ -102,5 +102,40 @@
         "email": "mukul@gmal.com",
         "password": "Muku@2",
         "role": "staff"
+    },
+    {
+        "id": "9ba18df5-133a-4df1-beab-c34db275994e",
+        "name": "rani kumari",
+        "email": "rani@gmail.com",
+        "password": "Rani@2",
+        "role": "staff"
+    },
+    {
+        "id": "9f2e46e4-e3ab-4998-ae43-2cfa9f378d05",
+        "name": "kriti kumari",
+        "email": "kriti@@@@gmail.com",
+        "password": "python -u \"d:\\indixpert-nov2025-Kriti-RMS\\main.py\"",
+        "role": "staff"
+    },
+    {
+        "id": "0fb98ce3-b8bd-47ab-995e-2bc51e3ef404",
+        "name": "babita",
+        "email": "babita@gmail.com",
+        "password": "Babi@2",
+        "role": "staff"
+    },
+    {
+        "id": "178a2cb2-62e6-455b-a13c-569b67580d84",
+        "name": "renu",
+        "email": "renu@gmail.com",
+        "password": "Renu@2",
+        "role": "staff"
+    },
+    {
+        "id": "4b8329d8-c34d-4957-bcb3-7eed724a9f44",
+        "name": "rekha kumari",
+        "email": "rekha@gmail.com",
+        "password": "Rekh@2",
+        "role": "admin"
     }
 ]

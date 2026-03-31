@@ -1,5 +1,5 @@
 from App.menu.add_food import AddMenu
-from App.menu.view_food import ViewMenu
+from App.menu.view_menu import ViewMenu
 from App.menu.update_food import UpdateMenu
 from App.menu.delete_food import DeleteMenu
 
@@ -10,9 +10,9 @@ class ManageMenu:
         obj = AddMenu()
         obj.add_food()
 
-    def view_food(self):
+    def view_menu(self):
         obj = ViewMenu()
-        obj.view_food()
+        obj.view_menu()
 
     def update_food(self):
         obj = UpdateMenu()
