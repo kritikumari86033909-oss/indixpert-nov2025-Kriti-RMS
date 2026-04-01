@@ -58,9 +58,12 @@ class Booking:
             if b["date"] == date and b["slot"] == time_slot:
                 booked_tables.append(b["table"])
 
-        available_table = [str(i) for i in range(1, total_tables + 1)
-                            if str(i) not in booked_tables
-                    ]  
+        available_table = []
+
+        for i in range(1, total_tables + 1):
+            if i not in booked_tables:
+                available_table.append(i)
+                      
 
         if not available_table:
             print("no table available in this slot ")
