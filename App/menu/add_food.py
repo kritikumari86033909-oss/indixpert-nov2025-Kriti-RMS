@@ -48,7 +48,6 @@ class AddMenu:
                 except json.JSONDecodeError:
                     data=[]
 
-
         # -------- DUPLICATE NAME CHECK --------
         for item in data:
             if item["name"].strip().lower() == name.lower():
@@ -60,6 +59,7 @@ class AddMenu:
             new_id = str(last_id + 1)
         else:
             new_id = "1"
+            
         # -------- CREATE FOOD ITEM --------
         food_item={
 
