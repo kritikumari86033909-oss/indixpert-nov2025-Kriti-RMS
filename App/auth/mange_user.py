@@ -5,6 +5,7 @@ from App.dashboard.admin import AdminDashboard
 from App.dashboard.staff import StaffDashboard
 
 class UserManag:
+    
     def menu(self):
 
         while True:
