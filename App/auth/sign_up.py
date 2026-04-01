@@ -52,7 +52,6 @@ class reg_user:
                     print("valide email")
                     break            
 
-
             while True:
 
                 password=getpass.getpass("enter your password:")
@@ -66,6 +65,9 @@ class reg_user:
                 elif not any(char.isdigit() for char in password):
                     print("must contain 1 number")
 
+                elif "@" not in password:
+                    print("@ symbol zaruri hai")
+                    
                 else:
                     print("strong password")
                     break            
