@@ -1,7 +1,6 @@
 import json
 import uuid
 import os
-import re
 import getpass
 
 file_path= os.path.join("App","database","users.json")
@@ -56,8 +55,8 @@ class reg_user:
 
                 password=getpass.getpass("enter your password:")
 
-                if len(password)<6:
-                    print("password must be at least 6 characters")
+                if len(password)<8:
+                    print("password must be at least 8 characters")
 
                 elif not any(char.isupper() for char in password):
                     print("must cantain 1 uppercase latter")
@@ -70,9 +69,30 @@ class reg_user:
                     
                 else:
                     print("strong password")
-                    break            
-                            
-                  
+                    break 
+
+
+            while True:                
+                mobile_number = input("enter your mobile number:").strip()
+
+                if mobile_number.isdigit() and len(mobile_number) == 10 and mobile_number != "0000000000":
+                    print("valid mobile number")
+                    break
+                else:
+                    print("invalid mobile number! must be 10 digit")
+
+
+            while True:
+                adress = input("enter your adress:").strip()
+                if len(adress) < 5:
+                    print("Invalid address !")
+                elif adress.isdigit():
+                    print("only number not allowed :")
+                else:
+                    print("valid address: ")
+                    break
+
+
             role="staff"
             
             data={
@@ -80,6 +100,8 @@ class reg_user:
                 "name":name,
                 "email":email,
                 "password":password,
+                "mobile" : mobile_number,
+                "adress" : adress,
                 "role":role
             }  
 
