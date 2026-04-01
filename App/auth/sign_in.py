@@ -36,7 +36,7 @@ class Login:
                         role=role.strip().lower()
 
                         print(" Login Successful!")
-                        print("DEBUG ROLE:", role)
+                        print("ROLE:", role)
                         return role
 
                 #  Wrong credentials

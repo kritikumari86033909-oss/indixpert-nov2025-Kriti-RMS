@@ -10,16 +10,18 @@ class Order:
         self.menu_path = os.path.join("App", "database", "menu.json")
         self.order_path = os.path.join("App", "database", "orders.json")
 
-    def search_menu(self, menu, keyword):
-        keyword = keyword.lower()
-        results = []
+    def search_menu(menu):
 
+        search = input("Enter item name: ").lower()
+
+        found = False
         for item in menu:
-            item_name = item["name"].lower()
-            if keyword in item_name:
-                results.append(item)    
+            if search in item["name"].lower():
+                print(f"{item['name']} - ₹{item['price']}")
+                found = True
 
-        return results
+        if not found:
+            print("no item found:")
     
     def place_order(self):
 

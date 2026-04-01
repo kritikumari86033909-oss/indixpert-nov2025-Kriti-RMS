@@ -10,5 +10,11 @@
         "total_orders": 8,
         "total_earning": 3826.125,
         "today_earning": 758.125
+    },
+    {
+        "date": "01-04-2026",
+        "total_orders": 9,
+        "total_earning": 5724.125,
+        "today_earning": 2656.125
     }
 ]

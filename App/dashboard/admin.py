@@ -5,17 +5,6 @@ from App.menu.manage_menu import ManageMenu
 from App.booking.table_booking import Booking
 from App.report.project_info import Report
 
-# -------- COMMON UI FUNCTION --------
-def print_box(title, options):
-    print("\n" + "="*45)
-    print(f"{title.center(45)}")
-    print("="*45)
-
-    for opt in options:
-        print(opt)
-
-    print("="*45)
-
 class AdminDashboard:
 
     def __init__(self):
@@ -25,16 +14,19 @@ class AdminDashboard:
         menu=ManageMenu()
 
         while True:
-
-            print_box("ADMIN DASHBOARD ",[ 
-            "1 - manage menu",
-            "2 - View order",
-            "3 - Booking",
-            "4 - Sales report",
-            "5 - Delete orders",
-            "6 - Today's sales",
-            "7 - logout"
-            ])
+            
+            print("\n" + "="*45)
+            print("              ADMIN DASHBOARD              ")
+            print("="*45)
+            print("1 - MANAGE MENU")
+            print("2 - VIEW ORDER")
+            print("3 - TABLE BOOKING")
+            print("4 - REPORT")
+            print("5 - DELETE ORDER")
+            print("6 - TODAY's SALES")
+            print("7 - LOGOUT")
+            print("="*45)
+         
             choice = input("Enter your choice: ").strip()
 
             if not choice.isdigit():
@@ -46,13 +38,15 @@ class AdminDashboard:
 
                 while True:
 
-                    print_box("MENU MANAGEMENT", [
-                        "1 Add Food",
-                        "2 View menu",
-                        "3 Update Food",
-                        "4 Delete Food",
-                        "5 Back"
-                    ])
+                    print("\n" + "="*45)
+                    print("               MENU MANAGEMENT               ")
+                    print("="*45)
+                    print("1 Add item")
+                    print("2 View menu")
+                    print("3 Update item")
+                    print("4 Delete item")
+                    print("5 Back")
+                    print("="*45)
                     
                     option = input("Enter choice: ").strip()
 
@@ -87,14 +81,16 @@ class AdminDashboard:
 
                 while True:
 
-                    print_box("BOOKING MENU", [
-                        "1 Add Booking",
-                        "2 View Booking",
-                        "3 Delete Booking",
-                        "4 Update Booking",
-                        "5 Customer History",
-                        "6 Back"
-                    ])
+                    print("\n" + "="*45)
+                    print("                 BOOKING MENU                 ")
+                    print("="*45)
+                    print("1 Add Booking")
+                    print("2 View Booking")
+                    print("3 Delete Booking")
+                    print("4 Update Booking")
+                    print("5 Customer History")
+                    print("6 Back")
+                    print("="*45)
 
 
                     opt = input("Enter choice: ").strip()
@@ -161,12 +157,16 @@ class AdminDashboard:
         print("\n========ORDER HISTORY========")
 
         for order in orders: 
-            print("\nOrder ID:", order.get("order_id"))
-            print("Subtotal: ₹", order.get("subtotal")) 
+            print(f"Order ID: {order.get('order_id')}")
+            print(f"Subtotal: ₹{order.get('subtotal')}")
+            print("-" * 50)
+            print(f"{'ITEM':<25}{'QTY':<10}{'PRICE':<10}")
+            print("-" * 50)  
 
             for item in order.get("items", []):
-                print(f"  - {item['name']} x {item['qty']} = ₹{item['total']}") 
+                print(f"{item['name']:<25}{item['qty']:<10}{item['total']:<10}")
 
+            print("-" * 50)
 
      # -------- DELETE ORDER --------
     def delete_order(self):

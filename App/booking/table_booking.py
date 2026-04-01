@@ -69,12 +69,13 @@ class Booking:
             print("no table available in this slot ")
             return
 
-        print("\nAvailable Tables:", ", ".join(available_table)) 
+        
+        print("\nAvailable Tables:", ", ".join(str(i) for i in available_table))
 
         table = input("Enter table number from available tables: ").strip()
 
-        if table not in available_table:
-            print("please select from available tables only  ")
+        if table not in [str(i) for i in available_table]:
+            print("please select from available tables only")
             return               
 
         booking = {
@@ -101,10 +102,16 @@ class Booking:
         with open(self.file_path, "r") as file:
             bookings = json.load(file)
 
-        print("\n===== BOOKINGS =====")
+        if not bookings:
+            print("No bookings found")
+            return    
+
+        print("\n========== BOOKINGS ============\n")
+        print(f"{'NAME':<10}{'MOBILE':<15}{'TABLE':<8}{'DATE':<15}{'SLOT':<10}")
+        print("-"*60)
 
         for b in bookings:
-            print(f"{b['name']} | {b['phone']} | Table {b['table']} | {b['date']} | Slot: {b['slot']}")
+            print(f"{b['name']:<10}{b['phone']:<15}{b['table']:<8}{b['date']:<15}{b['slot']:<10}")
 
     # -------- DELETE --------
     def delete_booking(self):
@@ -173,13 +180,15 @@ class Booking:
 
         phone = input("Enter phone number: ").strip()
 
-        print("\n===== CUSTOMER BOOKING HISTORY =====")
+        print("\n======== CUSTOMER BOOKING HISTORY  =========\n")
+        print(f"{'NAME':<10}{'TABLE':<8}{'DATE':<15}{'SLOT':<10}")
+        print("-"*45)
 
         found = False
 
         for b in bookings:
             if b["phone"] == phone:
-                print(f"{b['name']} | Table {b['table']} | {b['date']} | Slot {b['slot']}")
+                print(f"{b['name']:<10}{b['table']:<8}{b['date']:<15}{b['slot']:<10}")
                 found = True   
 
         if not found:

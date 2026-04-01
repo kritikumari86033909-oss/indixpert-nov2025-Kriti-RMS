@@ -1,5 +1,5 @@
 from App.menu.view_menu import ViewMenu
-from App.order.order import Order
+from App.order.order_item import Order
 from App.booking.table_booking import Booking
 
 class StaffDashboard:
@@ -13,15 +13,15 @@ class StaffDashboard:
         while True:
 
             print("\n===== STAFF DASHBOARD =====")
-            print("1 - view menu")
-            print("2 - order")
-            print("3 - booking")
-            print("4 - back")
+            print("1 - VIEW MENU")
+            print("2 - ORDER")
+            print("3 - BOOKING")
+            print("4 - BACK")
 
             choice = input("Enter your choice: ")
 
             if choice == "1":
-                view.view_food() 
+                view.view_menu() 
 
             elif choice == "2":
                 order.place_order()
@@ -30,9 +30,10 @@ class StaffDashboard:
                 
                 while True:
                     print("\n===== BOOKING MENU =====")
-                    print("1 Add Booking")
-                    print("2 View Booking")
-                    print("3 Back")
+                    print("1 - Add Booking")
+                    print("2 - View Booking")
+                    print("3 - Cancel Booking")
+                    print("4 -  Back")
 
                     opt = input("Enter choice: ").strip()
 
@@ -42,11 +43,14 @@ class StaffDashboard:
                     elif opt == "2":
                         booking.view_booking()
 
-                    elif opt == "3":
+                    elif opt =="3":
+                        booking.delete_booking()    
+
+                    elif opt == "4":
                         break
 
                     else:
-                        print("Invalid choice")
+                        print("Invalid choice")            
 
             elif choice == "4":
                 print("Going Back")

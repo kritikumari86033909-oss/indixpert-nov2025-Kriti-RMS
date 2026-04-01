@@ -198,5 +198,57 @@
             "final_total": 758.125,
             "payment_methode": "Card"
         }
+    },
+    {
+        "order_id": "73863526-f19b-4b41-b6d9-6fe567c69e06",
+        "customer_name": "laila kumari",
+        "phone": "1234567898",
+        "date": "01-04-2026",
+        "time": "22:23:56",
+        "items": [
+            {
+                "name": "Chicken Chilli",
+                "size": "full",
+                "price": 350,
+                "qty": 5,
+                "type": "takeaway",
+                "packing_charge": 10,
+                "total": 1760
+            }
+        ],
+        "subtotal": 1760,
+        "bill": {
+            "discount": 0,
+            "gst": 88.0,
+            "packing": 50,
+            "final_total": 1898.0,
+            "payment_methode": "UPI"
+        }
+    },
+    {
+        "order_id": "5f242e64-ad2d-452a-9046-629549b3dd2e",
+        "customer_name": "anamika",
+        "phone": "7292938083",
+        "date": "02-04-2026",
+        "time": "00:16:03",
+        "items": [
+            {
+                "name": "Chicken Pasta",
+                "size": "full",
+                "price": 340,
+                "qty": 1,
+                "type": "dine in",
+                "packing_charge": 0,
+                "total": 340
+            }
+        ],
+        "subtotal": 340,
+        "bill": {
+            "discount": 0,
+            "gst": 17.0,
+            "packing": 0,
+            "final_total": 357.0,
+            "payment_methode": "cash"
+        }
     }
 ]

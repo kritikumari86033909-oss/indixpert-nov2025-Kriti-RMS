@@ -137,5 +137,30 @@
         "email": "rekha@gmail.com",
         "password": "Rekh@2",
         "role": "admin"
+    },
+    {
+        "id": "61542fdc-acb5-4e6b-baa1-76d2f1a32691",
+        "name": "sobha",
+        "email": "sobha@gmail.com",
+        "password": "Sobh@2",
+        "role": "staff"
+    },
+    {
+        "id": "167cff9c-d764-47d6-891c-c16da1646d3a",
+        "name": "nishu kumari",
+        "email": "nibha@gmail.com",
+        "password": "Nibh@2",
+        "mobile": "1234567897",
+        "adress": "bihar",
+        "role": "admin"
+    },
+    {
+        "id": "4bb946f4-bd91-4504-963b-03ecb4f91ec3",
+        "name": "laila kumari",
+        "email": "laila@gmail.com",
+        "password": "Laila@12",
+        "mobile": "1234567898",
+        "adress": "mirganj",
+        "role": "staff"
     }
 ]
