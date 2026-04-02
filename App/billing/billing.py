@@ -4,17 +4,16 @@ from datetime import datetime
 
 class Billing:
 
-    def generate_bill(self,name, phone, address, cart, total):
+    def generate_bill(self, name, phone, address, cart, total):
 
         now = datetime.now()
         date = now.strftime("%d-%m-%Y")
         time = now.strftime("%H:%M:%S")
 
-        # packing system
-
+        # -------- PACKING SYSTEM --------
         total_packing = 0 
         for item in cart:
-            total_packing=total_packing+item["packing_charge"] * item["qty"]
+            total_packing =total_packing+ item["packing_charge"] * item["qty"]
 
         # -------- DISCOUNT --------
         discount = 0
@@ -27,25 +26,21 @@ class Billing:
             except:
                 print("Invalid discount skipped")
 
-        
         # -------- GST --------
-        gst_percent= 5
-        gst=(total-discount)*gst_percent/100 
-        final_total=total - discount + gst+ total_packing
+        gst_percent = 5
+        gst = (total - discount) * gst_percent / 100 
+        final_total = total - discount + gst + total_packing
 
-           
         # -------- PRINT BILL --------
         print("\n" + "="*45)
         print("        5 STAR RESTAURANT".center(45))
         print("="*45)
-
         print(f"Name    : {name}")
         print(f"Phone   : {phone}")
         print(f"Address : {address}")
         print(f"Date    : {date}")
         print(f"Time    : {time}")
         print("-"*45)
-
         print(f"{'ITEM':<20}{'QTY':<5}{'PRICE':<8}{'TOTAL':<8}")
         print("-"*45)
 
@@ -64,52 +59,53 @@ class Billing:
 
         # -------- PAYMENT --------
         while True:
-
-            print("\nselect payment method")
-            print("1. cash")
+            print("\nSelect payment method")
+            print("1. Cash")
             print("2. UPI")
-            print("3. card")
+            print("3. Card")
 
-            choice=(input("Enter choice")).strip()
+            choice = input("Enter choice: ").strip()
 
             if choice == "1":
-                payment_method="cash"
-                print("payment Received in cash")
+                payment_method = "Cash"
+                print("Payment received in cash")
                 break
-
             elif choice == "2":
-                payment_method="UPI"
-                print("scan QR to pay.....")
-                upi_id=input("Enter UPI ID: ")
-                print("payment Successful via UPI:")
+                payment_method = "UPI"
+                upi_id = input("Enter UPI ID: ")
+                print(f"Payment successful via UPI ({upi_id})")
                 break
-
-            elif choice =="3":
+            elif choice == "3":
                 payment_method = "Card"
                 print("Processing Card...")
-                print("Payment Successful ")
+                print("Payment successful")
                 break
-
             else:
                 print("Invalid choice! Please select 1, 2 or 3")
-                
+
         print(f"Payment Method: {payment_method}")
 
-        bill_data={
+        # -------- BILL DATA --------
+        bill_data = {
+            "name": name,
+            "phone": phone,
+            "address": address,
+            "cart": cart,
             "discount": discount,
-            "gst":gst,
-            "packing":total_packing,
-            "final_total":final_total,
-            "payment_method": payment_method
+            "gst": gst,
+            "packing": total_packing,
+            "final_total": final_total,
+            "payment_method": payment_method,
+            "date": date,
+            "time": time
         }
+
         self.save_bill(bill_data)
         return final_total 
 
-    
     def save_bill(self, bill_data):
 
         orders = []
-
         file_path = os.path.join("App", "database", "orders.json")
 
         if os.path.exists(file_path):
@@ -118,16 +114,9 @@ class Billing:
                     orders = json.load(file)
                 except json.JSONDecodeError:
                     pass
-        
-        #  new bill add                
-        orders.append(bill_data)        
 
-        # last order me bill add
-        if orders:
-            orders[-1]["bill"] = bill_data
+        # -------- SAVE BILL --------
+        orders.append(bill_data)  
 
         with open(file_path, "w") as file:
-            json.dump(orders, file, indent=4)  
-
-            
-
+            json.dump(orders, file, indent=4)
