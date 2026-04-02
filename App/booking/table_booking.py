@@ -125,7 +125,11 @@ class Booking:
 
         phone = input("Enter phone number to delete booking: ").strip()
 
-        new_data = [b for b in bookings if b["phone"] != phone]
+        new_data = []
+
+        for b in bookings:
+            if b["phone"] != phone:
+                new_data.append(b)
 
         with open(self.file_path, "w") as file:
             json.dump(new_data, file, indent=4)

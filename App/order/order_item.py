@@ -10,19 +10,6 @@ class Order:
         self.menu_path = os.path.join("App", "database", "menu.json")
         self.order_path = os.path.join("App", "database", "orders.json")
 
-    def search_menu(menu):
-
-        search = input("Enter item name: ").lower()
-
-        found = False
-        for item in menu:
-            if search in item["name"].lower():
-                print(f"{item['name']} - ₹{item['price']}")
-                found = True
-
-        if not found:
-            print("no item found:")
-    
     def place_order(self):
 
         name = input("Enter customer name: ").strip()
@@ -85,38 +72,36 @@ class Order:
 
         # -------- ORDER LOOP --------
         while True:
-            keyword = input("\n Enter food name to search (or 'done' to finish): ").strip()
-            if keyword.lower() in ["done", "0", "quick"]:
+            search_name = input("\nEnter food name (done to stop): ").strip().lower()
+
+            if search_name == "done":
                 break
 
-            results = self.search_menu(menu, keyword)
-            if not results:
-                print("no item found try again")
-                continue
+            #  search results list
 
-            # Show search results
+            results = []
+            for item in menu:
+                if search_name in item["name"].lower():
+                    results.append(item)
+
+            if not results:
+                print("Item not found, try again")
+                continue
+            
+
+            #  show results
             print("\nSearch Results:")
             print(f"{'ID':<5}{'NAME':<30}{'HALF(₹)':<10}{'FULL(₹)':<10}")
+
             for item in results:
                 print(f"{item['id']:<5}{item['name']:<30}{item['half_price']:<10}{item['full_price']:<10}")
 
-            food_id = input("Enter Food ID : ").strip()
-
-            found = None
-            for item in menu:
-                if item["id"] == food_id:
-                    found = item
-                    break
-
-            if not found:
-                print("Invalid Food ID")
-                continue
 
             size= input("Enter size (half/full): ").strip().lower()
             if size == "half":
-                price = int(found.get ("half_price", 0))
+                price = item["half_price"]
             elif size == "full":
-                price = int(found.get("full_price", 0))
+                price = item["full_price"]
  
             else:
                 print("Invalid size")
@@ -151,7 +136,7 @@ class Order:
             total = total + item_total
 
             cart.append({
-                "name" : found.get("name"),
+                "name" : name,
                 "size": size,
                 "price" : price,
                 "qty" :  qty,
@@ -160,7 +145,7 @@ class Order:
                 "total" :item_total
         
             })
-            print(f"{found.get('name')} added to cart. Item total: ₹{item_total}")
+            print(f"{item['name']} added to cart. Item total: ₹{item_total}")
 
 
         if not cart:
@@ -184,14 +169,13 @@ class Order:
             
         } 
 
+        orders = []
         if os.path.exists(self.order_path):
             with open(self.order_path, "r") as file:
                 try:
                     orders = json.load(file)
                 except:
-                    orders = []
-        else:
-            orders = []
+                    pass
 
         orders.append(order_data)
 

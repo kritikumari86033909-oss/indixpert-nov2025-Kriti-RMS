@@ -32,15 +32,17 @@ class UpdateMenu:
         food_item=None
         
         for food in data:
-            if food.get("id") == food_id:
+            if food["id"] == food_id:
                 food_item=food
                 break
 
         if not food_item:
                 print("food not found") 
-                return   
+                return 
+          
         print("Food found! Enter new details")
         name=input("Enter new name: ").strip()
+
         if name and name.replace(" ", "").isalpha():
             food_item["name"] = name
 
@@ -58,7 +60,7 @@ class UpdateMenu:
                 food_item["half_price"] = half_price
                 food_item["full_price"] = full_price
 
-            if full_price <= half_price:
+            if full_price > half_price:
                 print("full price must be greater than half price")
                 return    
             else:

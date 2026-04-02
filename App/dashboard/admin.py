@@ -217,6 +217,7 @@ class AdminDashboard:
 
         total_orders= len(orders)
         total_sales=0
+        
         for order in orders:
             total_sales = total_sales+order.get("subtotal", 0)
 

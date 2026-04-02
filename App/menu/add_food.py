@@ -17,9 +17,11 @@ class AddMenu:
         # -------- CATEGORY VALIDATION --------
         category = input("Enter category(veg/non-veg) : ").strip().lower()
 
-        if category not in["veg", "non-veg"]:
-            print("invalid category! only veg or non-veg allowed")
-            return
+        if category != "veg" and category != "non-veg":
+            print("invalid category! ")
+
+        else:
+            print("Valid category")    
         
 
         # -------- PRICE VALIDATION --------
@@ -31,7 +33,7 @@ class AddMenu:
                 print("price must be greater than 0")
                 return
             
-            if full_price <= half_price:
+            if full_price > half_price:
                 print("full price must be greater than half price")
                 return
             

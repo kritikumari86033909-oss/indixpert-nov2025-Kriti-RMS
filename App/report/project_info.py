@@ -5,7 +5,7 @@ from datetime import datetime
 class Report:
 
     def __init__(self):
-        self.file_path=os.path.join("App", "database", "orders.json")
+        self.file_path = os.path.join("App", "database", "orders.json")
         self.report_path = os.path.join("App", "database", "report.json")
 
     def generate_report(self):
@@ -14,7 +14,7 @@ class Report:
             print("no order data found")
             return
 
-        with open(self.file_path, "r")as file:
+        with open(self.file_path, "r") as file:
             try:
                 orders = json.load(file)
             except json.JSONDecodeError:
@@ -24,21 +24,33 @@ class Report:
         if not orders:
             print("no orders available")
             return
-        total_orders=len(orders)
-        total_earning=0
-        today_earning=0
+        
+        total_orders = len(orders)
+        total_earning = 0
+        today_earning = 0
 
-        today_date= datetime.now().strftime("%d-%m-%Y")
+        today_date = datetime.now().strftime("%d-%m-%Y")
 
         for order in orders:
-            bill = order.get("bill", {})
 
-            final_total= bill.get("final_total",order.get("subtotal",0))
-            total_earning=total_earning+final_total
+            if "bill" in order:
+                bill = order["bill"]
+            else:
+                bill = {}
 
-            if order.get("date")==today_date:
-                today_earning=today_earning+final_total             
+            if "final_total" in bill:
+                final_total = bill["final_total"]
+            elif "subtotal" in order:
+                final_total = order["subtotal"]
+            else:
+                final_total = 0
 
+            total_earning =total_earning + final_total
+
+            if "date" in order and order["date"] == today_date:
+                today_earning = today_earning + final_total
+
+        
         print("\n" + "="*50)
         print(" DAILY REPORT".center(50))
         print("="*50)
@@ -47,7 +59,7 @@ class Report:
         print(f"Total Earnings   : ₹{total_earning:.2f}")
         print(f"Today's Earnings : ₹{today_earning:.2f}")
 
-        print("="*50)  
+        print("="*50)
 
         report_data = {
             "date": today_date,
@@ -55,20 +67,20 @@ class Report:
             "total_earning": total_earning,
             "today_earning": today_earning
         }
-        
-        # Load old reports
+
+        #  LOAD OLD REPORTS
+        reports = []
+
         if os.path.exists(self.report_path):
             with open(self.report_path, "r") as file:
                 try:
                     reports = json.load(file)
                 except json.JSONDecodeError:
-                    reports = []
-        else:
-            reports = []
+                    pass
 
-        reports.append(report_data)    
+        reports.append(report_data)
 
         with open(self.report_path, "w") as file:
             json.dump(reports, file, indent=4)
 
-        print(" Report saved successfully!")        
+        print("Report saved successfully!")

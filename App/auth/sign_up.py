@@ -55,7 +55,7 @@ class reg_user:
 
                 password=getpass.getpass("enter your password:")
 
-                if len(password)<8:
+                if len(password)<=8:
                     print("password must be at least 8 characters")
 
                 elif not any(char.isupper() for char in password):

@@ -100,13 +100,15 @@ class Billing:
             "gst":gst,
             "packing":total_packing,
             "final_total":final_total,
-            "payment_methode": payment_method
+            "payment_method": payment_method
         }
         self.save_bill(bill_data)
         return final_total 
 
     
     def save_bill(self, bill_data):
+
+        orders = []
 
         file_path = os.path.join("App", "database", "orders.json")
 
@@ -115,9 +117,10 @@ class Billing:
                 try:
                     orders = json.load(file)
                 except json.JSONDecodeError:
-                    orders = []
-        else:
-            orders = []
+                    pass
+        
+        #  new bill add                
+        orders.append(bill_data)        
 
         # last order me bill add
         if orders:

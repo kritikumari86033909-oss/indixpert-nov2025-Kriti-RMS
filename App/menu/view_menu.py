@@ -28,8 +28,15 @@ class ViewMenu:
         print("="*60)
 
         # CATEGORY WISE FILTER
-        veg_items = [item for item in data if item["category"] == "veg"]
-        nonveg_items = [item for item in data if item["category"] == "non-veg"]
+        veg_items = []
+        nonveg_items = []
+
+        for item in data:
+            if item["category"] == "veg":
+                veg_items.append(item)
+
+            elif item["category"] == "non-veg":
+                nonveg_items.append(item)
 
         def print_section(title, items):
             print("\n" + "-"*60)
@@ -39,7 +46,7 @@ class ViewMenu:
             print("-"*60)
 
             for item in items:
-                short_id = item['id'][:6]
+            
                 print(f"{item['id']:<8}{item['name']:<25}{item['half_price']:<10}{item['full_price']:<10}")
 
         # PRINT SECTIONS

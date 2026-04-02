@@ -24,10 +24,12 @@ class DeleteMenu:
             return
         
         food_id=input("Enter food IDto delete: ").strip()
+
         new_data = []
         found=False
+
         for food in data:
-            if food.get("id") == food_id:
+            if food["id"] == food_id:
                 found=True
             else:
                 new_data.append(food)
