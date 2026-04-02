@@ -52,24 +52,16 @@ class reg_user:
                     break            
 
             while True:
-
-                password=getpass.getpass("enter your password:")
-
-                if len(password)<=8:
-                    print("password must be at least 8 characters")
-
-                elif not any(char.isupper() for char in password):
-                    print("must cantain 1 uppercase latter")
-
-                elif not any(char.isdigit() for char in password):
-                    print("must contain 1 number")
-
-                elif "@" not in password:
-                    print("@ symbol zaruri hai")
-                    
-                else:
-                    print("strong password")
-                    break 
+                          
+                try:
+                    data["password"] = getpass.getpass("SET A PASSWORD: ")
+                    if  6 <= len(data["password"]) <= 15 and data["password"].isalnum():
+                        break
+                    else:
+                        print("password length invalid(6-15)!!")
+                        continue
+                except Exception as e:
+                    print(f"error: {e}")
 
 
             while True:                
