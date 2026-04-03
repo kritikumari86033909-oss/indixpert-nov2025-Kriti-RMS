@@ -1,122 +1,162 @@
 import json
 import os
+import uuid
 from datetime import datetime
+from App.logger import Logger    
 
 class Billing:
 
-    def generate_bill(self, name, phone, address, cart, total):
+    def __init__(self):
+        self.logger = Logger()   
 
-        now = datetime.now()
-        date = now.strftime("%d-%m-%Y")
-        time = now.strftime("%H:%M:%S")
+    def generate_bill(self, name, phone, address, cart):
+        try:
+            # -------- DATE & TIME --------
+            now = datetime.now()
+            date = now.strftime("%d-%m-%Y")
+            time = now.strftime("%H:%M:%S")
 
-        # -------- PACKING SYSTEM --------
-        total_packing = 0 
-        for item in cart:
-            total_packing =total_packing+ item["packing_charge"] * item["qty"]
+            # -------- CALCULATE SUBTOTAL & PACKING --------
+            subtotal = 0
+            total_packing = 0
 
-        # -------- DISCOUNT --------
-        discount = 0
-        apply_discount = input("Apply discount? (yes/no): ").strip().lower()
+            for item in cart:
+                try:
+                    price = float(item.get("price", 0))
+                    qty = int(item.get("qty", 1))
+                    packing_charge = float(item.get("packing_charge", 0))
+                except:
+                    price, qty, packing_charge = 0, 1, 0
 
-        if apply_discount == "yes":
-            try:
-                percent = float(input("Enter discount %: "))
-                discount = (total * percent) / 100
-            except:
-                print("Invalid discount skipped")
+                item_total = price * qty
+                subtotal += item_total
+                total_packing += packing_charge * qty
 
-        # -------- GST --------
-        gst_percent = 5
-        gst = (total - discount) * gst_percent / 100 
-        final_total = total - discount + gst + total_packing
+                item["price"] = price
+                item["qty"] = qty
+                item["packing_charge"] = packing_charge
+                item["total"] = item_total + packing_charge
 
-        # -------- PRINT BILL --------
-        print("\n" + "="*45)
-        print("        5 STAR RESTAURANT".center(45))
-        print("="*45)
-        print(f"Name    : {name}")
-        print(f"Phone   : {phone}")
-        print(f"Address : {address}")
-        print(f"Date    : {date}")
-        print(f"Time    : {time}")
-        print("-"*45)
-        print(f"{'ITEM':<20}{'QTY':<5}{'PRICE':<8}{'TOTAL':<8}")
-        print("-"*45)
+            # -------- DISCOUNT --------
+            discount = 0
+            apply_discount = input("Apply discount? (yes/no): ").strip().lower()
 
-        for item in cart:
-            item_total = item["price"] * item["qty"]   
-            print(f"{item['name']:<20}{item['qty']:<5}{item['price']:<8}{item_total:<8}")
+            if apply_discount == "yes":
+                try:
+                    percent = float(input("Enter discount %: "))
+                    discount = subtotal * percent / 100
+                except:
+                    print("Invalid discount skipped")
 
-        print("-"*45)
-        print(f"Subtotal : ₹{total}")
-        print(f"Discount : -₹{discount:.2f}")
-        print(f"GST (5%) : +₹{gst:.2f}")
-        print(f"Packing  : ₹{total_packing}")
-        print("-"*45)
-        print(f"FINAL TOTAL : ₹{final_total:.2f}")
-        print("="*45)
+            # -------- GST --------
+            gst_percent = 5
+            gst = (subtotal - discount) * gst_percent / 100
 
-        # -------- PAYMENT --------
-        while True:
-            print("\nSelect payment method")
-            print("1. Cash")
-            print("2. UPI")
-            print("3. Card")
+            # -------- FINAL TOTAL --------
+            final_total = subtotal - discount + gst + total_packing
 
-            choice = input("Enter choice: ").strip()
+            # -------- PRINT BILL --------
+            print("\n" + "="*50)
+            print("             5 STAR RESTAURANT".center(50))
+            print("="*50)
+            print(f"Name    : {name}")
+            print(f"Phone   : {phone}")
+            print(f"Address : {address}")
+            print(f"Date    : {date}")
+            print(f"Time    : {time}")
+            print("-"*50)
+            print(f"{'ITEM':<20}{'QTY':<5}{'PRICE':<8}{'TOTAL':<10}")
+            print("-"*50)
 
-            if choice == "1":
-                payment_method = "Cash"
-                print("Payment received in cash")
-                break
-            elif choice == "2":
-                payment_method = "UPI"
-                upi_id = input("Enter UPI ID: ")
-                print(f"Payment successful via UPI ({upi_id})")
-                break
-            elif choice == "3":
-                payment_method = "Card"
-                print("Processing Card...")
-                print("Payment successful")
-                break
-            else:
-                print("Invalid choice! Please select 1, 2 or 3")
+            for item in cart:
+                print(f"{item['name']:<20}{item['qty']:<5}{item['price']:<8}{item['total']:<10}")
 
-        print(f"Payment Method: {payment_method}")
+            print("-"*50)
+            print(f"Subtotal : ₹{subtotal:.2f}")
+            print(f"Discount : -₹{discount:.2f}")
+            print(f"GST (5%) : +₹{gst:.2f}")
+            print(f"Packing  : ₹{total_packing:.2f}")
+            print("-"*50)
+            print(f"FINAL TOTAL : ₹{final_total:.2f}")
+            print("="*50)
 
-        # -------- BILL DATA --------
-        bill_data = {
-            "name": name,
-            "phone": phone,
-            "address": address,
-            "cart": cart,
-            "discount": discount,
-            "gst": gst,
-            "packing": total_packing,
-            "final_total": final_total,
-            "payment_method": payment_method,
-            "date": date,
-            "time": time
-        }
+            # -------- PAYMENT --------
+            while True:
+                print("\nSelect payment method:")
+                print("1. Cash")
+                print("2. UPI")
+                print("3. Card")
 
-        self.save_bill(bill_data)
-        return final_total 
+                choice = input("Enter choice: ").strip()
+
+                if choice == "1":
+                    payment_method = "Cash"
+                    print("Payment received in cash")
+                    break
+
+                elif choice == "2":
+                    payment_method = "UPI"
+                    upi_id = input("Enter UPI ID: ")
+                    print(f"Payment successful via UPI ({upi_id})")
+                    break
+
+                elif choice == "3":
+                    payment_method = "Card"
+                    print("Processing Card...")
+                    print("Payment successful")
+                    break
+
+                else:
+                    print("Invalid choice!")
+
+            # -------- BILL DATA --------
+            bill_data = {
+                "order_id": str(uuid.uuid4()),
+                "customer_name": name,
+                "phone": phone,
+                "address": address,
+                "cart": cart,
+                "subtotal": subtotal,
+                "discount": discount,
+                "gst": gst,
+                "packing": total_packing,
+                "final_total": final_total,
+                "payment_method": payment_method,
+                "date": date,
+                "time": time
+            }
+
+            # -------- SAVE --------
+            self.save_bill(bill_data)
+
+    
+            self.logger.log_activity(
+                "BILL_GENERATED",
+                f"{name} | ₹{final_total} | {payment_method}"
+            )
+
+            return final_total, bill_data["order_id"]
+
+        except Exception as e:
+            self.logger.log_error(str(e))
+            print("Error generating bill")
 
     def save_bill(self, bill_data):
-
-        orders = []
         file_path = os.path.join("App", "database", "orders.json")
+        orders = []
 
         if os.path.exists(file_path):
-            with open(file_path, "r") as file:
-                try:
+            try:
+                with open(file_path, "r") as file:
                     orders = json.load(file)
-                except json.JSONDecodeError:
-                    pass
+            except:
+                orders = []
 
-        # -------- SAVE BILL --------
-        orders.append(bill_data)  
+        orders.append(bill_data)
 
-        with open(file_path, "w") as file:
-            json.dump(orders, file, indent=4)
+        try:
+            with open(file_path, "w") as file:
+                json.dump(orders, file, indent=4)
+        except Exception as e:
+            self.logger.log_error(str(e))
+            print("Error saving bill")

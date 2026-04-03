@@ -33,7 +33,7 @@ class AddMenu:
                 print("price must be greater than 0")
                 return
             
-            if full_price > half_price:
+            if full_price <= half_price:
                 print("full price must be greater than half price")
                 return
             

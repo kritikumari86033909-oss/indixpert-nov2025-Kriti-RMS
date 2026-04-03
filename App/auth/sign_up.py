@@ -2,6 +2,8 @@ import json
 import uuid
 import os
 import getpass
+from App.logger import Logger 
+
 
 file_path= os.path.join("App","database","users.json")
 
@@ -15,6 +17,9 @@ if os.path.exists(file_path):
             listdata=[]    
 
 class reg_user:
+
+    def __init__(self):
+        self.logger = Logger()
 
     def register(self):
         try:
@@ -46,22 +51,37 @@ class reg_user:
                         break
                 if duplicate:
                     print("email already exists")
+                    self.logger.log_activity("SIGNUP_FAILED", f"Duplicate email: {email}")
                     continue
+
                 else:
                     print("valide email")
                     break            
 
             while True:
-                          
-                try:
-                    data["password"] = getpass.getpass("SET A PASSWORD: ")
-                    if  6 <= len(data["password"]) <= 15 and data["password"].isalnum():
-                        break
-                    else:
-                        print("password length invalid(6-15)!!")
-                        continue
-                except Exception as e:
-                    print(f"error: {e}")
+
+                password=getpass.getpass("enter your password:")
+
+                if len(password)<8:
+                    print("password must be at least 8 characters")
+                    self.logger.log_activity("SIGNUP_FAILED", "Weak password length")
+                    
+                elif not any(char.isupper() for char in password):
+                    print("must cantain 1 uppercase latter")
+                    self.logger.log_activity("SIGNUP_FAILED", "No uppercase")
+
+                elif not any(char.isdigit() for char in password):
+                    print("must contain 1 number")
+                    self.logger.log_activity("SIGNUP_FAILED", "No digit")
+
+                elif "@" not in password:
+                    print("@ symbol zaruri hai")
+                    self.logger.log_activity("SIGNUP_FAILED", "No @ symbol")
+
+                    
+                else:
+                    print("strong password")
+                    break 
 
 
             while True:                
@@ -72,14 +92,17 @@ class reg_user:
                     break
                 else:
                     print("invalid mobile number! must be 10 digit")
-
+                    self.logger.log_activity("SIGNUP_FAILED", "Invalid mobile")
 
             while True:
                 adress = input("enter your adress:").strip()
                 if len(adress) < 5:
                     print("Invalid address !")
+                    self.logger.log_activity("SIGNUP_FAILED", "Invalid mobile")
+
                 elif adress.isdigit():
                     print("only number not allowed :")
+                    self.logger.log_activity("SIGNUP_FAILED", "Invalid mobile")
                 else:
                     print("valid address: ")
                     break
@@ -102,9 +125,13 @@ class reg_user:
                 json.dump(listdata, file,indent=4)
 
             print("Registration successful")
+            self.logger.log_activity("SIGNUP_FAILED", "Short address")
+
 
         except Exception as e:
             print("something went wrong:",e)
+            self.logger.log_error(str(e))   
+
 
 
         

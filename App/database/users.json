@@ -111,13 +111,6 @@
         "role": "staff"
     },
     {
-        "id": "9f2e46e4-e3ab-4998-ae43-2cfa9f378d05",
-        "name": "kriti kumari",
-        "email": "kriti@@@@gmail.com",
-        "password": "python -u \"d:\\indixpert-nov2025-Kriti-RMS\\main.py\"",
-        "role": "staff"
-    },
-    {
         "id": "0fb98ce3-b8bd-47ab-995e-2bc51e3ef404",
         "name": "babita",
         "email": "babita@gmail.com",
@@ -162,5 +155,68 @@
         "mobile": "1234567898",
         "adress": "mirganj",
         "role": "staff"
+    },
+    {
+        "id": "5fc59996-2188-4a1d-bcc9-ce8a45685b45",
+        "name": "kriti kumari",
+        "email": "kriti@gmail.com",
+        "password": "Kriti@12",
+        "mobile": "1234567898",
+        "adress": "bihar",
+        "role": "admin"
+    },
+    {
+        "id": "9e6ee311-ad93-49c9-b5c0-0b621bd97596",
+        "name": "sani kumar",
+        "email": "sani@gmail.com",
+        "password": "Sani@123",
+        "mobile": "1234567898",
+        "adress": "bihar",
+        "role": "staff"
+    },
+    {
+        "id": "993521bf-6627-4757-8a89-919c95bf0eea",
+        "name": "anuska",
+        "email": "anuska@gmail.com",
+        "password": "Anusk!!!!!!!!!!!!!!!!!!!@12",
+        "mobile": "1234567898",
+        "adress": "bihar",
+        "role": "staff"
+    },
+    {
+        "id": "768dade2-e5d6-4e79-a157-1fe8ac288b65",
+        "name": "amit kumar",
+        "email": "manu@gmail.com",
+        "password": "Manu@123",
+        "mobile": "1234567898",
+        "adress": "bihar",
+        "role": "admin"
+    },
+    {
+        "id": "f2da44ad-eeff-407f-9b00-6d4fdfb8b8e4",
+        "name": "suraj kumar",
+        "email": "suraj@gmail.com",
+        "password": "Suraj@12",
+        "mobile": "1234567898",
+        "adress": "bihar",
+        "role": "staff"
+    },
+    {
+        "id": "b241face-4aeb-4c6d-b574-f371bbdaef2a",
+        "name": "anki kumari",
+        "email": "anki@gmail.com",
+        "password": "Anki@123",
+        "mobile": "1234567898",
+        "adress": "bihar",
+        "role": "staff"
+    },
+    {
+        "id": "b449687f-1efd-42b8-951e-f11b8118ab59",
+        "name": "monika kumari",
+        "email": "monika@gmail.com",
+        "password": "Monika@1",
+        "mobile": "1234567898",
+        "adress": "bihar",
+        "role": "admin"
     }
 ]

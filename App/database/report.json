@@ -16,5 +16,55 @@
         "total_orders": 9,
         "total_earning": 5724.125,
         "today_earning": 2656.125
+    },
+    {
+        "date": "03-04-2026",
+        "total_orders": 1,
+        "total_earning": 190.0,
+        "today_earning": 190.0
+    },
+    {
+        "report_type": "Order",
+        "period": "weekly",
+        "date": "03-04-2026",
+        "time": "09:20:15",
+        "total_orders": 1,
+        "total_earning": 199.0,
+        "today_earning": 199.0,
+        "total_packing": 0.0,
+        "total_discount": 0.0
+    },
+    {
+        "report_type": "Order",
+        "period": "monthly",
+        "date": "03-04-2026",
+        "time": "09:20:31",
+        "total_orders": 1,
+        "total_earning": 199.0,
+        "today_earning": 199.0,
+        "total_packing": 0.0,
+        "total_discount": 0.0
+    },
+    {
+        "report_type": "Order",
+        "period": "yearly",
+        "date": "03-04-2026",
+        "time": "09:20:33",
+        "total_orders": 1,
+        "total_earning": 199.0,
+        "today_earning": 199.0,
+        "total_packing": 0.0,
+        "total_discount": 0.0
+    },
+    {
+        "report_type": "Order",
+        "period": "daily",
+        "date": "03-04-2026",
+        "time": "12:42:28",
+        "total_orders": 2,
+        "total_earning": 1069.5,
+        "today_earning": 1069.5,
+        "total_packing": 0.0,
+        "total_discount": 0.0
     }
 ]

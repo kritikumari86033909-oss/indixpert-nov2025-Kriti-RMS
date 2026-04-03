@@ -1,212 +1,217 @@
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
+from App.logger import Logger 
 
 class Booking:
 
     def __init__(self):
         self.file_path = os.path.join("App", "database", "booking.json")
+        os.makedirs(os.path.dirname(self.file_path), exist_ok=True)
 
+        self.total_tables = 10
+        self.seats_per_table = {i: 4 for i in range(1, self.total_tables + 1)}
+        self.max_booking_days = 14
+        self.valid_slots = ["9-12", "1-3", "3-6", "6-9"]
+
+        self.logger = Logger()   
+
+    # -------- ADD BOOKING --------
     def add_booking(self):
-
-        name = input("Enter customer name ").strip()
-        phone = input("Enter customer number ").strip()
-
-        if not phone.isdigit() or len(phone) != 10:
-            print(" Invailed  phone number: ")
-            return
-
-        date = input("Enter booking date (DD-MM-YYYY: )").strip()
-
         try:
-            datetime.strptime(date, "%d-%m-%Y")
-        except:
-            print("Invalide date format")
-            return
-         
-        # -------- TIME SLOT --------
-        print("\nSelect Time slot")
-        print("1. 9 AM - 12 PM")
-        print("2. 1 PM - 3 PM")
-        print("3. 3 PM - 6 PM")
+            name = input("Enter customer name ").strip()
+            phone = input("Enter customer number ").strip()
 
-        slot_choice = input("Enter choice: ").strip()
+            if not phone.isdigit() or len(phone) != 10:
+                print("Invalid phone number")
+                return
 
-        if slot_choice == "1":
-            time_slot = "9-12"
-        elif slot_choice == "2":
-           time_slot = "1-3"    
-        elif slot_choice == "3":
-            time_slot = "3-6"
-        else:
-            print("Invalide time slot")
-            return
-        
-        data=[]
-        if os.path.exists(self.file_path):
-            with open(self.file_path, "r") as file:
+            date = input("Enter booking date (DD-MM-YYYY): ").strip()
+
+            try:
+                booking_date = datetime.strptime(date, "%d-%m-%Y")
+            except ValueError:
+                print("Invalid date format")
+                return
+
+            today = datetime.today()
+
+            if booking_date.date() < today.date():
+                print("Booking date cannot be in the past")
+                return
+
+            if booking_date.date() > (today + timedelta(days=self.max_booking_days)).date():
+                print(f"Booking allowed only within {self.max_booking_days} days")
+                return
+
+            print("\nSelect Time slot")
+            print("1. 9 AM - 12 PM")
+            print("2. 1 PM - 3 PM")
+            print("3. 3 PM - 6 PM")
+            print("4. 6 PM - 9 PM")
+
+            slot_choice = input("Enter choice: ").strip()
+
+            slot_map = {"1": "9-12", "2": "1-3", "3": "3-6", "4": "6-9"}
+
+            if slot_choice not in slot_map:
+                print("Invalid slot")
+                return
+
+            time_slot = slot_map[slot_choice]
+
+            data = []
+            if os.path.exists(self.file_path):
                 try:
-                    data = json.load(file)
+                    with open(self.file_path, "r") as file:
+                        data = json.load(file)
                 except:
-                    data=[]
+                    data = []
 
-        # -------- AVAILABLE TABLES -------- 
-        total_tables = 10
-        booked_tables = []
+            booked_tables = [
+                int(b["table"]) for b in data
+                if b["date"] == date and b["slot"] == time_slot
+            ]
 
-        for b in data:
-            if b["date"] == date and b["slot"] == time_slot:
-                booked_tables.append(b["table"])
+            available_table = [
+                i for i in range(1, self.total_tables + 1)
+                if i not in booked_tables
+            ]
 
-        available_table = []
+            if not available_table:
+                print("No table available")
+                return
 
-        for i in range(1, total_tables + 1):
-            if i not in booked_tables:
-                available_table.append(i)
-                      
+            print("\nAvailable Tables:")
+            for t in available_table:
+                print(f"Table {t} - Seats: {self.seats_per_table[t]}")
 
-        if not available_table:
-            print("no table available in this slot ")
-            return
+            table_input = input("Enter table number: ").strip()
 
-        
-        print("\nAvailable Tables:", ", ".join(str(i) for i in available_table))
+            if not table_input.isdigit() or int(table_input) not in available_table:
+                print("Invalid table")
+                return
 
-        table = input("Enter table number from available tables: ").strip()
+            table_number = int(table_input)
 
-        if table not in [str(i) for i in available_table]:
-            print("please select from available tables only")
-            return               
+            booking = {
+                "name": name,
+                "phone": phone,
+                "table": table_number,
+                "date": date,
+                "slot": time_slot,
+                "seats": self.seats_per_table[table_number]
+            }
 
-        booking = {
-            "name": name,
-            "phone": phone,
-            "table": table,
-            "date": date,
-            "slot": time_slot
-        }
-        data.append(booking)
-    
-        with open(self.file_path, "w") as file:
-            json.dump(data, file, indent=4)
+            data.append(booking)
 
-        print("Booking added successfully ")
+            with open(self.file_path, "w") as file:
+                json.dump(data, file, indent=4)
+
+            print("Booking added successfully")
+
+            #  LOG
+            self.logger.log_activity("BOOKING_ADDED", f"{name}, Table {table_number}, {date}, {time_slot}")
+
+        except Exception as e:
+            self.logger.log_error(str(e))
 
     # -------- VIEW --------
     def view_booking(self):
+        try:
+            if not os.path.exists(self.file_path):
+                print("No bookings found")
+                return
 
-        if not os.path.exists(self.file_path):
-            print("No bookings found")
-            return
+            with open(self.file_path, "r") as file:
+                bookings = json.load(file)
 
-        with open(self.file_path, "r") as file:
-            bookings = json.load(file)
+            print("\n========== BOOKINGS ==========\n")
 
-        if not bookings:
-            print("No bookings found")
-            return    
+            for b in bookings:
+                print(b)
 
-        print("\n========== BOOKINGS ============\n")
-        print(f"{'NAME':<10}{'MOBILE':<15}{'TABLE':<8}{'DATE':<15}{'SLOT':<10}")
-        print("-"*60)
+            self.logger.log_activity("VIEW_BOOKINGS")
 
-        for b in bookings:
-            print(f"{b['name']:<10}{b['phone']:<15}{b['table']:<8}{b['date']:<15}{b['slot']:<10}")
+        except Exception as e:
+            self.logger.log_error(str(e))
 
     # -------- DELETE --------
     def delete_booking(self):
+        try:
+            with open(self.file_path, "r") as file:
+                bookings = json.load(file)
 
-        if not os.path.exists(self.file_path):
-            print("No bookings found")
-            return
+            phone = input("Enter phone: ")
+            date = input("Enter date: ")
+            slot = input("Enter slot: ")
 
-        with open(self.file_path, "r") as file:
-            bookings = json.load(file)
+            new_data = [
+                b for b in bookings
+                if not (b["phone"] == phone and b["date"] == date and b["slot"] == slot)
+            ]
 
-        phone = input("Enter phone number to delete booking: ").strip()
+            with open(self.file_path, "w") as file:
+                json.dump(new_data, file, indent=4)
 
-        new_data = []
+            print("Booking deleted")
 
-        for b in bookings:
-            if b["phone"] != phone:
-                new_data.append(b)
+            self.logger.log_activity("BOOKING_DELETED", f"{phone}, {date}, {slot}")
 
-        with open(self.file_path, "w") as file:
-            json.dump(new_data, file, indent=4)
+        except Exception as e:
+            self.logger.log_error(str(e))
 
-        print("Booking deleted successfully ")
-
-    # -------- UPDATE BOOKING --------
+    # -------- UPDATE --------
     def update_booking(self):
+        try:
+            with open(self.file_path, "r") as file:
+                bookings = json.load(file)
 
-        if not os.path.exists(self.file_path):
-            print("No bookings found")
-            return
+            phone = input("Enter phone: ")
 
-        with open(self.file_path, "r") as file:
-            bookings = json.load(file)
+            found = next((b for b in bookings if b["phone"] == phone), None)
 
-        phone = input("Enter phone number: ").strip()
+            if not found:
+                print("Not found")
+                return
 
-        found = None
-        for b in bookings:
-            if b["phone"] == phone:
-                found = b
-                break
+            new_date = input("Enter new date: ")
+            new_slot = input("Enter new slot: ")
 
-        if not found:
-            print("Booking not found")
-            return
+            found["date"] = new_date
+            found["slot"] = new_slot
 
-        print("Current Booking:", found)
+            with open(self.file_path, "w") as file:
+                json.dump(bookings, file, indent=4)
 
-        new_date = input("Enter new date (DD-MM-YYYY): ").strip()
-        new_slot = input("Enter new slot (9-12 / 1-3 / 3-6): ").strip()
+            print("Updated")
 
-        found["date"] = new_date
-        found["slot"] = new_slot
+            self.logger.log_activity("BOOKING_UPDATED", f"{phone}, {new_date}, {new_slot}")
 
-        with open(self.file_path, "w") as file:
-            json.dump(bookings, file, indent=4)
+        except Exception as e:
+            self.logger.log_error(str(e))
 
-        print("Booking updated successfully ")  
-
-
-    # -------- CUSTOMER HISTORY --------
     def customer_history(self):
+        try:
+            if not os.path.exists(self.file_path):
+                print("No customer history found")
+                return
 
-        if not os.path.exists(self.file_path):
-            print("No bookings found")
-            return
+            with open(self.file_path, "r") as file:
+                data = json.load(file)
 
-        with open(self.file_path, "r") as file:
-            bookings = json.load(file)
+            if not data:
+                print("No customer history available")
+                return
+            
+            print("\n===== CUSTOMER HISTORY =====\n")
+            for b in data:
+                print(f"Name: {b.get('name','N/A')}, Phone: {b.get('phone','N/A')}, "
+                    f"Table: {b.get('table','N/A')}, Date: {b.get('date','N/A')}, Slot: {b.get('slot','N/A')}")
+            print("\n=============================")
 
-        phone = input("Enter phone number: ").strip()
+            
+            self.logger.log_activity("VIEW_CUSTOMER_HISTORY")
 
-        print("\n======== CUSTOMER BOOKING HISTORY  =========\n")
-        print(f"{'NAME':<10}{'TABLE':<8}{'DATE':<15}{'SLOT':<10}")
-        print("-"*45)
-
-        found = False
-
-        for b in bookings:
-            if b["phone"] == phone:
-                print(f"{b['name']:<10}{b['table']:<8}{b['date']:<15}{b['slot']:<10}")
-                found = True   
-
-        if not found:
-            print("No booking found for this customer")               
-        
-
-
-
-
-        
-
-  
-
-
-
-
-
+        except Exception as e:
+            self.logger.log_error(str(e))

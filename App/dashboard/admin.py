@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 from App.menu.manage_menu import ManageMenu
 from App.booking.table_booking import Booking
-from App.report.project_info import Report
+from App.report.project_info import report_menu
 
 class AdminDashboard:
 
@@ -118,8 +118,7 @@ class AdminDashboard:
                         print("Invalid choice")
                    
             elif choice == "4":
-                report = Report()
-                report.generate_report()
+                report_menu()
                 
 
             elif choice == "5":

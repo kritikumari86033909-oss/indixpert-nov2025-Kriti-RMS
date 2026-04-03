@@ -1,51 +1,42 @@
 [
     {
-        "name": "sunaina",
+        "name": "nishika",
         "phone": "8603390997",
-        "table": "2",
-        "date": "24-03-2026",
-        "slot": "9-12"
-    },
-    {
-        "name": "kriti",
-        "phone": "9631690998",
-        "table": "4",
-        "date": "25-03-2026",
-        "slot": "3-6"
-    },
-    {
-        "name": "nisha",
-        "phone": "7250244836",
-        "table": "6",
-        "date": "26-03-2026",
-        "slot": "3-6"
-    },
-    {
-        "name": "isha",
-        "phone": "1234567898",
-        "table": "9",
-        "date": "26-03-2026",
-        "slot": "1-3"
-    },
-    {
-        "name": "rekha",
-        "phone": "1234678987",
-        "table": "2",
-        "date": "20-4-2026",
-        "slot": "3-6"
-    },
-    {
-        "name": "neha",
-        "phone": "1235467898",
-        "table": "5",
-        "date": "25-4-2026",
-        "slot": "3-6"
+        "table": 5,
+        "date": "08-04-2026",
+        "slot": "1-3",
+        "seats": 4
     },
     {
         "name": "amit",
-        "phone": "1234567898",
-        "table": "6",
-        "date": "02-04-2026",
-        "slot": "9-12"
+        "phone": "8809492998",
+        "table": 6,
+        "date": "06-04-2026",
+        "slot": "3-6",
+        "seats": 4
+    },
+    {
+        "name": "manu",
+        "phone": "1234234678",
+        "table": 5,
+        "date": "07-04-2026",
+        "slot": "3-6",
+        "seats": 4
+    },
+    {
+        "name": "monika",
+        "phone": "1234567654",
+        "table": 7,
+        "date": "03-04-2026",
+        "slot": "3-6",
+        "seats": 4
+    },
+    {
+        "name": "saloni",
+        "phone": "9192226531",
+        "table": 4,
+        "date": "09-04-2026",
+        "slot": "1-3",
+        "seats": 4
     }
 ]

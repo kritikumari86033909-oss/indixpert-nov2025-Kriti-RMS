@@ -56,15 +56,17 @@ class UpdateMenu:
             half_price = int(input("Enter new half price: "))
             full_price = int(input("Enter new full price: "))
 
-            if half_price >0 and full_price >0:
-                food_item["half_price"] = half_price
-                food_item["full_price"] = full_price
+            if half_price <= 0 or full_price <= 0:
+                print("price must be greater than 0")
+                return
 
-            if full_price > half_price:
+            if full_price <= half_price:
                 print("full price must be greater than half price")
-                return    
-            else:
-                print("price must be greater than 0 ")
+                return
+
+    
+            food_item["half_price"] = half_price
+            food_item["full_price"] = full_price
 
         except ValueError:
             print("Invalid price")
